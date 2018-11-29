@@ -13,7 +13,6 @@ const Drone = () => {
           <img className="shadow_img" src={Shadow} />
         </div>
       </div>
-
     </div>
   );
 };

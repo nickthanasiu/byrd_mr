@@ -17,16 +17,16 @@ module.exports = {
         }
       },
       {
+        test: /\.(jpe?g|png|svg|ttf)$/i,
+        loader: 'file-loader'
+      },
+      {
         test: /\.(s*)css$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader',
-        ],
-      },
-      {
-        test: /\.(jpe?g|png|svg)$/i,
-        loader: 'file-loader'
+        ]
       }
     ],
   },
