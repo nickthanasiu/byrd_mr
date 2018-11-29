@@ -5,21 +5,6 @@ import MenuButton from '../../assets/icons/Menu.png';
 import './style.scss';
 
 const styles = {
-
-  nav__left: {
-    height: '100%',
-    width: '33%',
-
-  },
-  nav__center: {
-    height: '100%',
-    width: '33%',
-  },
-  nav__logoContainer: {
-    marginTop: '30px',
-    display: 'flex',
-    justifyContent: 'center',
-  },
   nav__logo: {
     height: '20.22px',
     width: '136px',
@@ -46,12 +31,12 @@ const styles = {
 const Nav = () => {
   return (
     <nav className="nav">
-      <div className="nav__left" style={ styles.nav__left }>
+      <div className="nav__left">
         {/*Nothing display when mobile*/}
       </div>
       <div className="nav__center" style={ styles.nav__center }>
-        <div className="nav__logoContainer" style={ styles.nav__logoContainer}>
-          <img className="nav__logo" src={Logo} style={ styles.nav__logo} />
+        <div className="logo_container">
+          <img className="logo" src={Logo} style={ styles.nav__logo} />
         </div>
       </div>
       <div className="nav__right" style={ styles.nav__right }>
