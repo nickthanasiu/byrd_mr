@@ -4,44 +4,40 @@ import MenuButton from '../../assets/icons/Menu.png';
 
 import './style.scss';
 
-const styles = {
-  nav__logo: {
-    height: '20.22px',
-    width: '136px',
-  },
-  nav__right: {
-    height: '100%',
-    width: '33%',
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  nav__buttonContainer: {
-    marginTop: '34px',
-    marginRight: '27px',
-
-    width: '29px',
-    height: '12px',
-  },
-  nav__menuButton: {
-    height: '100%',
-    width: '100%',
-  },
-};
-
 const Nav = () => {
   return (
     <nav className="nav">
       <div className="nav__left">
-        {/*Nothing display when mobile*/}
-      </div>
-      <div className="nav__center" style={ styles.nav__center }>
-        <div className="logo_container">
-          <img className="logo" src={Logo} style={ styles.nav__logo} />
+        <div className="nav__left--desktop">
+          <ul className="nav__list">
+            <li className="left-item">
+              STORE
+            </li>
+            <li>
+              TUTORIALS
+            </li>
+          </ul>
         </div>
       </div>
-      <div className="nav__right" style={ styles.nav__right }>
-        <div className="nav__buttonContainer" style={ styles.nav__buttonContainer }>
-          <img className="nav__menuButton" src={MenuButton} style={ styles.nav__menuButton } />
+      <div className="nav__center">
+        <div className="logo_container">
+          <img className="logo" src={Logo} />
+        </div>
+      </div>
+      <div className="nav__right">
+        <div className="btn_container">
+          <img className="menu_btn" src={MenuButton} />
+        </div>
+
+        <div className="nav__right--desktop">
+          <ul className="nav__list">
+            <li className="left-item">
+              BLOG
+            </li>
+            <li>
+              CONTACT
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

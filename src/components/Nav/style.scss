@@ -1,30 +1,95 @@
+@import '../../styles/_breakpoints.scss';
+
+/*
+ *
+ * @TODO: import fonts from assets folder rather than google fonts
+ * @TODO: move .nav__list styling into a more appropriate place
+ *
+ */
+
 .nav {
-  height: 80px;
+
+  .nav__list {
+    height: 16px;
+    margin-top: 74px;
+    margin-bottom: 71px;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+
+    .left-item {
+      margin-right: 50px;
+    }
+
+  }
+
   display: flex;
   justify-content: space-around;
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+
+  @include breakpoint-phone-down {
+    height: 80px;
+  }
+
+  @include breakpoint-tablet-up {
+    height: 136px;
+  }
+
+  @include breakpoint-desktop-up {
+    height: 161px;
+  }
 
 
   &__left {
-    height: 100%;
     width: 33%;
+    height: 100%;
+
+    &--desktop {
+      height: 100%;
+
+
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+    }
+
   }
 
   /*************  end .nav__left  ******************/
 
   &__center {
-    height: 100%;
     width: 33%;
-    border: 1px solid red;
+    height: 100%;
 
     .logo_container {
-      border: 1px solid blue;
-      margin-top: 30px;
       display: flex;
       justify-content: center;
+      align-items: center;
+
+      margin-top: 30px;
+
+      @include breakpoint-tablet-up {
+        margin-top: 52px;
+      }
+
+      @include breakpoint-desktop-up {
+        margin-top: 63px;
+      }
 
       .logo {
         width: 136px;
         height: 20.22px;
+
+        @include breakpoint-tablet-up {
+          width: 216px;
+          height: 32px;
+        }
       }
     }
 
@@ -33,6 +98,44 @@
   /*************  end .nav__center  ******************/
 
   &__right {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
 
+
+    .btn_container {
+      padding: 34px 27px 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @include breakpoint-tablet-up {
+        padding: 62px 63px 0;
+      }
+
+
+      .menu_btn {
+        width: 29px;
+        height: 12px;
+      }
+
+      @include breakpoint-desktop-up {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      width: 100%;
+      height: 100%;
+
+
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+    }
   }
+  /*************  end .nav__right  ******************/
 }
