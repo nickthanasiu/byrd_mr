@@ -1,55 +1,28 @@
 @import '../../styles/_breakpoints.scss';
 
-/*
- *
- * @TODO: import fonts from assets folder rather than google fonts
- * @TODO: move .nav__list styling into a more appropriate place
- *
- */
-
 .nav {
-
-  .nav__list {
-    height: 16px;
-    margin-top: 74px;
-    margin-bottom: 71px;
-    padding: 0;
-    list-style: none;
-
-    display: flex;
-    justify-content: center;
-
-    .left-item {
-      margin-right: 50px;
-    }
-
-  }
-
   display: flex;
   justify-content: space-around;
-  font-family: 'Archivo', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1.5px;
+  max-width: 100vw;
 
   @include breakpoint-phone-down {
-    height: 80px;
+    height: 4.875rem;
   }
 
   @include breakpoint-tablet-up {
-    height: 136px;
+    height: 8.5rem;
   }
 
   @include breakpoint-desktop-up {
-    height: 161px;
+    height: 10.0625;
   }
 
 
-  &__left {
+  .nav__left {
     width: 33%;
     height: 100%;
 
-    &--desktop {
+    .nav__left--desktop {
       height: 100%;
 
 
@@ -57,38 +30,38 @@
       @include breakpoint-tablet-down {
         display: none;
       }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
   }
 
   /*************  end .nav__left  ******************/
 
-  &__center {
+  .nav__center {
     width: 33%;
     height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .logo_container {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      margin-top: 30px;
-
-      @include breakpoint-tablet-up {
-        margin-top: 52px;
-      }
-
-      @include breakpoint-desktop-up {
-        margin-top: 63px;
-      }
-
       .logo {
-        width: 136px;
-        height: 20.22px;
+        width: 8.5rem;
+        height: 1.264rem;
 
         @include breakpoint-tablet-up {
-          width: 216px;
-          height: 32px;
+          width: 13.5rem;
+          height: 2rem;
         }
       }
     }
@@ -97,7 +70,7 @@
 
   /*************  end .nav__center  ******************/
 
-  &__right {
+  .nav__right {
     width: 33%;
     height: 100%;
     display: flex;
@@ -105,20 +78,21 @@
 
 
     .btn_container {
-      padding: 34px 27px 0;
+      width: 66.4%;
+      position: relative;
 
       &:hover {
         cursor: pointer;
       }
 
-      @include breakpoint-tablet-up {
-        padding: 62px 63px 0;
-      }
-
-
       .menu_btn {
-        width: 29px;
-        height: 12px;
+
+        width: 1.8125rem;
+        height: .75rem;
+
+        position: absolute;
+        top: 43.6%;
+        right: 32.53%;
       }
 
       @include breakpoint-desktop-up {
@@ -126,16 +100,42 @@
       }
     }
 
-    &--desktop {
+    .nav__right--desktop {
       width: 100%;
       height: 100%;
-
-
 
       @include breakpoint-tablet-down {
         display: none;
       }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
   /*************  end .nav__right  ******************/
+
+  .nav__list {
+
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.09375rem;
+
+
+    margin-top: 4.625rem;
+    margin-bottom: 4.4375rem;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+
+    .left-item {
+      margin-right: 3.215rem;
+    }
+
+  }
 }

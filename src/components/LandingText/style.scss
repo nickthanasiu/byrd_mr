@@ -1,50 +1,119 @@
-.landing-text {
+@import '../../styles/_breakpoints.scss';
 
+.landing-text {
+  border: 1px solid red;
   font-family: sans-serif;
   font-weight: 200;
   color: #C7C1BD;
-  margin-top: 15px;
-  height: 182px;
+  box-sizing: border-box;
+  height: 31.2%; //208px
+
+
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
 
-
-  &__header {
-    width: 291px;
-    height: 116px;
-
-    color: #fff;
-    font-family: 'Archivo Regular';
-    font-size: 6.875rem;
-    line-height: 1.1;
-
-    display: flex;
-    justify-content: center;
+  @include breakpoint-tablet-up {
+    height: 35%; //358px
   }
 
-  &__quote {
-    width: 260px;
-    height: 40px;
-    text-align: center;
-    letter-spacing: 1.1px;
+  @include breakpoint-desktop-up {
+    height: 37%; //297.85px
+  }
+
+
+  &__header {
+    background-color: red;
+    opacity: .33;
+    width: 77.6%;
+    height: 45.673%; //95.11px
+    color: #fff;
+    font-family: 'Archivo Regular';
+    font-size: 29.25vw;
+    line-height: 1.1;
+    white-space: nowrap;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint-smallphone-down {
+      font-size: 26vw;
+    }
+
+    @include breakpoint-tablet-up {
+      width: 65.1%;
+      height: 66.76%; //239px
+      font-size: 24vw;
+    }
+
+    @include breakpoint-desktop-up {
+      width: 49%;
+      height: 61.77%;
+      font-size: 16vw;
+
+    }
+  }
+
+  &__quote {
+    background-color: green;
+    opacity: .33;
+    width: 69.33%;
+    height: 19.23%;
+    text-align: center;
+    letter-spacing: 0.06875rem;
+    font-size: 4.25vw;
+    margin-top: 2.4%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint-tablet-up {
+      width: 52.1%;
+      height: 5.577%; //19.968px
+      font-size: 2.275vw;
+    }
+
+    @include breakpoint-desktop-up {
+      width: 27.5%;
+      height: 2.484vh;
+      margin-top: 2%;
+      font-size: 1.2vw;
+    }
 
   }
 
   &__source {
-    width: 155px;
-    height: 26px;
-    letter-spacing: 1.1px;
+    background-color: blue;
+    opacity: .3;
+    width: 41.33%;
+    height: 7.69%; //16px
 
+    font-size: 4.25vw;
+    letter-spacing: 1.1px;
     text-align: center;
+
+    margin-top: 2.4%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint-tablet-up {
+      width: 20.18%;
+      height: 4.469%; //16px
+      font-size: 2vw;
+      margin-top: 1.5%;
+    }
+
+    @include breakpoint-desktop-up {
+      min-width: 155px;
+      width: 10.764%;
+      height: 1.987vh;
+      font-size: 1.25vw;
+      margin-top: .5%;
+    }
   }
 }

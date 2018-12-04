@@ -1,32 +1,106 @@
 @import '../../styles/_breakpoints.scss';
 
 .drone {
-  padding-top: 19px;
+  border: 1px solid red;
+
+  height: 56.37%;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 4.0479%;
+
+  display: flex;
+  justify-content: center;
 
   @include breakpoint-tablet-up {
-    padding-top: 91px;
+    height: 51.465%; // 527px
+    padding-top: 7.617%;
+    padding: 9% 14.5833% 0;
   }
 
   @include breakpoint-desktop-up {
-    padding-top: 0;
+    height: 42.73%;
+    padding: 0 35%;
   }
 
-  &__images-container {
-    display: flex;
-    justify-content: center;
+  .images-wrapper {
+    border: 1px solid blue;
+    //min-width: 544px;
+    width: 100%;
+    height: 100%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    .drone-img {
+
+      border: 1px solid green;
+
+      width: 109.33%;
+
+      height: 91.72%; // 310px
+      position: absolute;
+      bottom: 8.275%;
+
+      @include breakpoint-phone-down {
+        max-width: 25.625rem;
+        max-height: 21.125rem;
+      }
+
+      @include breakpoint-tablet-up {
+        width: 544px;
+        height: 449px;
+      }
+
+    }
+
+    .shadow_img {
+
+      width: 86.667%;
+      height: 8.284%; // 28px
+      position: absolute;
+      bottom: 2.958%;
+
+      @include breakpoint-phone-down {
+        max-width: 20.3125rem;
+        max-height: 1.75rem;
+      }
+    }
+  } /********** end .images_wrapper **************/
+}
+
+/*
+.drone {
+
+
+
+
+
+  &__images-container {
+
+
+
+    max-height: 338px;
 
     .images_wrapper {
-
       display: flex;
       flex-direction: column;
       align-items: center;
 
       position: relative;
 
+      border: 1px solid green;
+
       .drone_img {
+        border: 1px solid red;
+
         width: 410px;
-        height: 338px;
+
+
 
         @include breakpoint-tablet-up {
           width: 554px;
@@ -59,7 +133,8 @@
 
       }
 
-    } /********** end .images_wrapper **************/
+    }  /*
 
   } /********** end .drone__images-container **************/
-}
+/*}/*
+*/

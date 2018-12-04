@@ -7,11 +7,9 @@ import './style.scss';
 const Drone = () => {
   return (
     <div className="drone">
-      <div className="drone__images-container">
-        <div className="images_wrapper">
-          <img className="drone_img" src={DroneImg} />
-          <img className="shadow_img" src={Shadow} />
-        </div>
+      <div className="images-wrapper">
+        <img className="drone-img" src={DroneImg} />
+        <img className="shadow_img" src={Shadow} />
       </div>
     </div>
   );
