@@ -5,15 +5,14 @@ import LandingText from '../../components/LandingText';
 
 import './style.scss';
 
-class LandingPage extends Component {
-  render() {
-    return (
-      <div className="landing_page">
-        <Nav />
-
-      </div>
-    );
-  }
-}
+const LandingPage = () => {
+  return (
+    <div className="landing_page">
+      <Nav />
+      <Drone />
+      <LandingText />
+    </div>
+  );
+};
 
 export default LandingPage;

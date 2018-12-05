@@ -10,10 +10,10 @@ const Nav = () => {
       <div className="nav__left">
         <div className="nav__left--desktop">
           <ul className="nav__list">
-            <li className="left-item">
+            <li className="nav__list-item left-item">
               STORE
             </li>
-            <li>
+            <li className="nav__list-item">
               TUTORIALS
             </li>
           </ul>
@@ -31,10 +31,10 @@ const Nav = () => {
 
         <div className="nav__right--desktop">
           <ul className="nav__list">
-            <li className="left-item">
+            <li className="nav__list-item left-item">
               BLOG
             </li>
-            <li>
+            <li className="nav__list-item">
               CONTACT
             </li>
           </ul>

@@ -1,4 +1,5 @@
 @import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
 
 .nav {
   display: flex;
@@ -25,8 +26,6 @@
     .nav__left--desktop {
       height: 100%;
 
-
-
       @include breakpoint-tablet-down {
         display: none;
       }
@@ -39,7 +38,6 @@
     }
 
   }
-
   /*************  end .nav__left  ******************/
 
   .nav__center {
@@ -64,10 +62,10 @@
           height: 2rem;
         }
       }
+
     }
 
   }
-
   /*************  end .nav__center  ******************/
 
   .nav__right {
@@ -75,7 +73,6 @@
     height: 100%;
     display: flex;
     justify-content: flex-end;
-
 
     .btn_container {
       width: 66.4%;
@@ -86,7 +83,6 @@
       }
 
       .menu_btn {
-
         width: 1.8125rem;
         height: .75rem;
 
@@ -118,13 +114,10 @@
   /*************  end .nav__right  ******************/
 
   .nav__list {
-
     font-family: 'Archivo', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.09375rem;
-
-
     margin-top: 4.625rem;
     margin-bottom: 4.4375rem;
     padding: 0;
@@ -132,6 +125,14 @@
 
     display: flex;
     justify-content: center;
+
+    .nav__list-item {
+
+      &:hover {
+        cursor: pointer;
+        color: $orange;
+      }
+    }
 
     .left-item {
       margin-right: 3.215rem;
