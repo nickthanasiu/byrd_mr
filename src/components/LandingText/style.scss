@@ -1,50 +1,17 @@
-<<<<<<< HEAD
-.landing-text {
-
-  font-family: sans-serif;
-  font-weight: 200;
-  color: #C7C1BD;
-  margin-top: 15px;
-  height: 182px;
-=======
 @import '../../styles/_breakpoints.scss';
 @import '../../styles/_colors.scss';
 
-
 .landing-text {
-  font-family: 'Archivo Regular', sans-serif;
+  font-family: 'Archivo Medium', sans-serif;
   font-weight: 200;
   color: $landing_page_text;
   box-sizing: border-box;
   height: 13rem;
->>>>>>> landingPage
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-
-<<<<<<< HEAD
-
-  &__header {
-    width: 291px;
-    height: 116px;
-
-    color: #fff;
-    font-family: 'Archivo Regular';
-    font-size: 6.875rem;
-    line-height: 1.1;
-
-    display: flex;
-    justify-content: center;
-  }
-
-  &__quote {
-    width: 260px;
-    height: 40px;
-    text-align: center;
-    letter-spacing: 1.1px;
-=======
   @include breakpoint-tablet-up {
     height: 22.375rem;
   }
@@ -58,8 +25,8 @@
     width: 18rem;
     height: 5.875rem;
     color: #fff;
-    font-family: 'Archivo Regular', sans-serif;
-    font-size: 7rem;
+    font-family: 'Archivo Bold', sans-serif;
+    font-size: 6.875rem;
     line-height: 1.1;
     white-space: nowrap;
 
@@ -92,25 +59,11 @@
     letter-spacing: 0.06875rem;
     font-size: 1rem;
     margin-top: .56rem;
->>>>>>> landingPage
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-<<<<<<< HEAD
-  }
-
-  &__source {
-    width: 155px;
-    height: 26px;
-    letter-spacing: 1.1px;
-
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-=======
     @include breakpoint-tablet-up {
       width: 25rem;
       height: 1.25rem;
@@ -125,8 +78,9 @@
       margin-top: 1.8rem;
       font-size: .875rem;
     }
-
   }
+
+
 
   .landing-text__source {
     width: 9.625rem;
@@ -153,6 +107,5 @@
       font-size: .875rem;
       margin-top: .5rem;
     }
->>>>>>> landingPage
   }
 }

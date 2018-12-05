@@ -1,8 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 
-=======
->>>>>>> landingPage
 import './style.scss';
 
 const LandingText = () => {
