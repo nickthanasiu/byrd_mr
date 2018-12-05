@@ -1,36 +1,67 @@
+@mixin portrait() {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape() {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+
 $breakpoints: (
-  'xsmall' : 0px,
-   'small' : 400px,
-   'medium' : 768px,
-   'large' : 850px,
+   'xsmall' : 0px,
+   'smallphone': 374px,
+   'phone' : 375px,
+   'widephone' : 440px,
+   'tablet' : 757px,
+   'desktop' : 1026px,
 );
 
-@mixin breakpoint-sm-down {
-  $max-value: map-get($breakpoints, medium) - 1;
+@mixin breakpoint-smallphone-down {
+  $max-value: map-get($breakpoints, smallphone);
 
   @media (max-width: $max-value) {
     @content;
   }
 }
 
-@mixin breakpoint-sm-up {
-  $min-value: map-get($breakpoints, small);
-
-  @media (min-width: $min-value) {
-    @content;
-  }
-}
-
-@mixin breakpoint-med-down {
-  $max-value: map-get($breakpoints, large) - 1;
+@mixin breakpoint-phone-down {
+  $max-value: map-get($breakpoints, tablet) - 1;
 
   @media (max-width: $max-value) {
     @content;
   }
 }
 
-@mixin breakpoint-med-up {
-  $min-value: map-get($breakpoints, medium);
+@mixin breakpoint-phone-up {
+  $min-value: map-get($breakpoints, phone);
+
+  @media (min-width: $min-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-widephone-up {
+  $min-value: map-get($breakpoints, widephone);
+
+  @media (min-width: $min-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-tablet-down {
+  $max-value: map-get($breakpoints, desktop) - 1;
+
+  @media (max-width: $max-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-tablet-up {
+  $min-value: map-get($breakpoints, tablet);
 
   @media (min-width: $min-value) {
     @content;
@@ -38,8 +69,8 @@ $breakpoints: (
 }
 
 
-@mixin breakpoint-lg-up {
-  $min-value: map-get($breakpoints, large);
+@mixin breakpoint-desktop-up {
+  $min-value: map-get($breakpoints, desktop);
 
   @media (min-width: $min-value) {
     @content;

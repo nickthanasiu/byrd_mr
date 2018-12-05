@@ -1,5 +1,142 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
+
 .nav {
-  height: 80px;
   display: flex;
   justify-content: space-around;
+  max-width: 100vw;
+
+  @include breakpoint-phone-down {
+    height: 4.875rem;
+  }
+
+  @include breakpoint-tablet-up {
+    height: 8.5rem;
+  }
+
+  @include breakpoint-desktop-up {
+    height: 10.0625;
+  }
+
+
+  .nav__left {
+    width: 33%;
+    height: 100%;
+
+    .nav__left--desktop {
+      height: 100%;
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
+  /*************  end .nav__left  ******************/
+
+  .nav__center {
+    width: 33%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .logo {
+        width: 8.5rem;
+        height: 1.264rem;
+
+        @include breakpoint-tablet-up {
+          width: 13.5rem;
+          height: 2rem;
+        }
+      }
+
+    }
+
+  }
+  /*************  end .nav__center  ******************/
+
+  .nav__right {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .btn_container {
+      width: 66.4%;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .menu_btn {
+        width: 1.8125rem;
+        height: .75rem;
+
+        position: absolute;
+        top: 43.6%;
+        right: 32.53%;
+      }
+
+      @include breakpoint-desktop-up {
+        display: none;
+      }
+    }
+
+    .nav__right--desktop {
+      width: 100%;
+      height: 100%;
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  /*************  end .nav__right  ******************/
+
+  .nav__list {
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.09375rem;
+    margin-top: 4.625rem;
+    margin-bottom: 4.4375rem;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+
+    .nav__list-item {
+
+      &:hover {
+        cursor: pointer;
+        color: $orange;
+      }
+    }
+
+    .left-item {
+      margin-right: 3.215rem;
+    }
+
+  }
 }
