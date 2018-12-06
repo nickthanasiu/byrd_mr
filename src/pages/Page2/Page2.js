@@ -40,7 +40,7 @@ class Page2 extends Component {
         style={{ backgroundColor: '#fff' }}
         ref={(elem) => this.page = elem}
       >
-      <Drone page='page2' width={droneWidth} height={droneHeight} />
+      <Drone page='page2'  />
 
       </div>
     );
