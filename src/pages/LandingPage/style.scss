@@ -1,7 +1,17 @@
 @import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
 
 .landing_page {
-  background-color: #F4F1ED;
+  background-color: $offwhite;
   min-height: 100vh;
   max-width: 100vw;
+  padding-top: 5.875rem;
+
+  @include breakpoint-tablet-up {
+    padding-top: 9.5rem;
+  }
+
+  @include breakpoint-desktop-up {
+    padding-top: 11.0625rem;
+  }
 }

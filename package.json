@@ -8,11 +8,14 @@
     "build": "webpack"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "lodash.camelcase": "^4.3.0",
+    "lodash.throttle": "^4.1.1",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-icons-kit": "^1.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

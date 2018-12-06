@@ -1,47 +1,157 @@
 import React, { Component } from 'react';
+import throttle from 'lodash.throttle';
 import Logo from '../../assets/logo/Logo.png';
 import MenuButton from '../../assets/icons/Menu.png';
+import WhiteMenuButton from '../../assets/icons/menu_button_white.png';
+import { Icon } from 'react-icons-kit'
+import { facebookSquare, instagram, twitter } from 'react-icons-kit/fa/';
 
 import './style.scss';
 
-const Nav = () => {
-  return (
-    <nav className="nav">
-      <div className="nav__left">
-        <div className="nav__left--desktop">
-          <ul className="nav__list">
-            <li className="nav__list-item left-item">
-              STORE
-            </li>
-            <li className="nav__list-item">
-              TUTORIALS
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="nav__center">
-        <div className="logo_container">
-          <img className="logo" src={Logo} />
-        </div>
-      </div>
-      <div className="nav__right">
-        <div className="btn_container">
-          <img className="menu_btn" src={MenuButton} />
-        </div>
+export default (ChildComponent) => {
+  class Nav extends Component {
+    constructor(props) {
+      super(props);
 
-        <div className="nav__right--desktop">
-          <ul className="nav__list">
-            <li className="nav__list-item left-item">
-              BLOG
-            </li>
-            <li className="nav__list-item">
-              CONTACT
-            </li>
-          </ul>
+      this.state = {
+        navBottom: null,
+        navBackgroundColor: null,
+        navSize: 'large'
+      };
+
+      this.handleScroll = this.handleScroll.bind(this);
+      this.throttledScrollHandler = throttle(this.handleScroll, 250);
+      this.shrinkNavBar = this.shrinkNavBar.bind(this);
+      this.growNavBar = this.growNavBar.bind(this);
+      //this.scrollHelper = this.scrollHelper.bind(this);
+      //this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
+    }
+
+    componentDidMount() {
+      window.addEventListener('scroll', this.throttledScrollHandler, true);
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('scroll', this.throttledScrollHandler, true);
+    }
+
+    handleScroll() {
+      this.setState({
+        navBottom: this.nav.offsetHeight
+      });
+    }
+
+    shrinkNavBar() {
+      if (this.state.navSize === 'large') {
+        this.setState({
+          navSize: 'small'
+        });
+      }
+    }
+
+    growNavBar() {
+      if (this.state.navSize === 'small') {
+        this.setState({
+          navSize: 'large'
+        });
+      }
+    }
+
+
+
+  /*
+  scrollHelper(currentPage) {
+    console.log('firing scroll helper');
+    let offset = currentPage.getBoundingClientRect().top;
+    let navBottom = this.state.navBottom;
+
+    console.log('offset: ', offset);
+    console.log('navBottom: ', navBottom);
+
+    if (offset < navBottom) {
+      this.updateBackgroundColor(currentPage);
+    }
+  }
+
+  updateBackgroundColor(currentPage) {
+    console.log('Background color is: ', currentPage.style.backgroundColor);
+    this.setState({
+      navBackgroundColor: currentPage.style.backgroundColor
+    });
+  }
+  */
+
+
+    render() {
+      const { navSize } = this.state;
+
+      return (
+        <div className="composedComponent">
+          <nav className={`nav ${navSize}`} ref={(elem) => this.nav = elem}>
+            <div className="nav__left">
+              <div className="nav__left--desktop">
+                <ul className="nav__list">
+                  <li className="nav__list-item left-item">
+                    STORE
+                  </li>
+                  <li className="nav__list-item">
+                    TUTORIALS
+                  </li>
+                </ul>
+
+                <ul className="nav__social-icons">
+                  <li>
+                    <Icon icon={facebookSquare} size={26} />
+                  </li>
+                  <li>
+                    <Icon icon={instagram} size={26} />
+                  </li>
+                  <li>
+                    <Icon icon={twitter} size={26} />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="nav__center">
+              <div className="logo_container">
+                <img className="logo" src={Logo} />
+              </div>
+            </div>
+            <div className="nav__right">
+              <div className="btn_container">
+                <img className="menu_btn" src={MenuButton} />
+              </div>
+
+              <div className="nav__right--desktop">
+                <ul className="nav__list">
+                  <li className="nav__list-item left-item">
+                    BLOG
+                  </li>
+                  <li className="nav__list-item">
+                    CONTACT
+                  </li>
+                </ul>
+
+                <div className="btn_container--desktop">
+                  <img className="menu_btn--desktop" src={WhiteMenuButton} />
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <div className="child-component-content">
+            <ChildComponent
+              {...this.props}
+              scrollHelper={this.scrollHelper}
+              navBottom={this.state.navBottom}
+              shrinkNavBar={this.shrinkNavBar}
+              growNavBar={this.growNavBar}
+            />
+          </div>
         </div>
-      </div>
-    </nav>
-  );
+      );
+    }
+  }
+
+  return Nav;
 };
-
-export default Nav;
