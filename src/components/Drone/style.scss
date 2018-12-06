@@ -1,5 +1,8 @@
 @import '../../styles/_breakpoints.scss';
 
+// Shadow width should be 79% of drone width
+// Shadhow height should be 9% of drone height
+
 .drone {
   box-sizing: border-box;
   display: flex;
@@ -17,7 +20,6 @@
 
     .drone-img {
       position: absolute;
-
     }
 
     .shadow-img {
@@ -45,7 +47,7 @@
 
       .drone-img {
         bottom: 8.275%;
-        border: 1px solid red;
+        //border: 1px solid red;
         width: 25.625rem;
         height: 19.375rem;
 
@@ -102,6 +104,9 @@
   &.page2 {
     height: 19rem;
 
+    //background-color: red;
+    //opacity: .5;
+
     padding-top: 2.5rem;
 
     @include breakpoint-tablet-up {
@@ -116,9 +121,13 @@
 
     .images-wrapper {
 
+      //border: 1px solid blue;
+      // Shadow width should be 79% of drone width
+      // Shadhow height should be 9% of drone height
+
       .drone-img {
         bottom: 5.9%;
-        border: 1px solid red;
+        //border: 1px solid black;
         width: 20.125rem;
         height: 15.375rem;
 
@@ -133,6 +142,14 @@
           width: 26.8rem;
           height: 20.8rem;
         }
+      }
+
+      .shadow-img {
+        //border: 1px solid orange;
+        bottom: 3.3%;
+        width: 15.9rem;
+        height: 1.3rem;
+
       }
 
     }
