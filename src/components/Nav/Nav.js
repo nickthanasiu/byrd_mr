@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+import { Icon } from 'react-icons-kit'
+import { facebookSquare, instagram, twitter } from 'react-icons-kit/fa/';
 import Logo from '../../assets/logo/Logo.png';
 import MenuButton from '../../assets/icons/Menu.png';
 import WhiteMenuButton from '../../assets/icons/menu_button_white.png';
-import { Icon } from 'react-icons-kit'
-import { facebookSquare, instagram, twitter } from 'react-icons-kit/fa/';
+import Menu from '../Menu';
 
 import './style.scss';
 
@@ -16,13 +17,15 @@ export default (ChildComponent) => {
       this.state = {
         navBottom: null,
         navBackgroundColor: null,
-        navSize: 'large'
+        navSize: 'large',
+        menuOpen: false
       };
 
       this.handleScroll = this.handleScroll.bind(this);
       this.throttledScrollHandler = throttle(this.handleScroll, 250);
       this.shrinkNavBar = this.shrinkNavBar.bind(this);
       this.growNavBar = this.growNavBar.bind(this);
+      this.toggleMenu = this.toggleMenu.bind(this);
       //this.scrollHelper = this.scrollHelper.bind(this);
       //this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
     }
@@ -57,6 +60,12 @@ export default (ChildComponent) => {
       }
     }
 
+    toggleMenu() {
+      this.setState({
+        menuOpen: !this.state.menuOpen
+      });
+    }
+
 
 
   /*
@@ -83,8 +92,8 @@ export default (ChildComponent) => {
 
 
     render() {
-      const { navSize } = this.state;
-
+      const { navSize, menuOpen } = this.state;
+      const menuState = menuOpen ? 'open' : 'closed';
       return (
         <div className="composedComponent">
           <nav className={`nav ${navSize}`} ref={(elem) => this.nav = elem}>
@@ -132,11 +141,16 @@ export default (ChildComponent) => {
                   </li>
                 </ul>
 
-                <div className="btn_container--desktop">
+                <div
+                  className="btn_container--desktop"
+                  onClick={this.toggleMenu}
+                >
                   <img className="menu_btn--desktop" src={WhiteMenuButton} />
                 </div>
               </div>
             </div>
+
+            <Menu menuState={menuState} toggleMenu={this.toggleMenu} />
           </nav>
 
           <div className="child-component-content">

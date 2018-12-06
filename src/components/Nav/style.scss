@@ -245,6 +245,11 @@
           width: 90px;
           height: 25px;
 
+          li:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
+
         }
       }
     }
@@ -283,11 +288,14 @@
         .btn_container--desktop {
 
           @include breakpoint-desktop-up {
-
             padding-right: 0;
 
             display: flex;
             padding-right: 39px;
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
