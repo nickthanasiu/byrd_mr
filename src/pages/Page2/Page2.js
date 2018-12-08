@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav';
 import Drone from '../../components/Drone';
+import Page2Text from '../../components/Page2Text';
 
 import './style.scss';
 
@@ -62,15 +63,7 @@ class Page2 extends Component {
           <div className="page-2__title-underline" />
         </div>
 
-        <div className="page-2__text">
-          Breakthrough design makes F-210 essentially improved.
-          With a new bow body design and carbon fiber material, it has
-          superior ruggedness and anti-drop ability. Through improved
-          small details, it will definitely give you more satisfaction.
-          Axis equidistant design ensures the gravity center of the aircraft
-          in the middle, which makes the flight more stable and turning agiler.
-          Motor protection cover makes flying.
-        </div>
+        <Page2Text />
       </div>
 
       </div>

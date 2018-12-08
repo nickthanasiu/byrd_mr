@@ -104,22 +104,5 @@
       }
     }
 
-    .page-2__text {
-      width: 20.125rem;
-      height: 16.625rem;
-      color: $page_2_text;
-      font-size: 1rem;
-      line-height: 1.625rem;
-
-      @include breakpoint-tablet-up {
-        width: 40.5rem;
-        height: 14.375rem;
-        font-size: 1.25rem;
-        line-height: 2rem;
-      }
-
-    }
   }
 }
-
-//375 X 369
