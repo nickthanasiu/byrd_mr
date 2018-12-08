@@ -42,6 +42,7 @@ class Page2 extends Component {
       >
 
       <div className="page-2__images-container">
+
         <Drone page={'page2'}  />
 
         <div className="page-2__image-selectors">

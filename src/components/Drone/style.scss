@@ -104,14 +104,15 @@
   &.page2 {
     height: 19rem;
 
-    //background-color: red;
+    //background-color: yellow;
     //opacity: .5;
 
     padding-top: 2.5rem;
 
     @include breakpoint-tablet-up {
       height: 25.5rem;
-      padding: 2.7rem 3.8rem 0;
+      //padding: 2.7rem 3.8rem 0;
+      padding: 2.7rem 10rem 0;
     }
 
     @include breakpoint-desktop-up {
@@ -132,8 +133,9 @@
         height: 15.375rem;
 
         @include breakpoint-tablet-up {
-          width: 27.5rem;
-          height: 21.25rem;
+          bottom: 6.59%;
+          width: 27.5rem; //440
+          height: 21.25rem; //340
         }
 
         @include breakpoint-desktop-up {
@@ -149,6 +151,12 @@
         bottom: 3.3%;
         width: 15.9rem;
         height: 1.3rem;
+
+        @include breakpoint-tablet-up {
+          bottom: 3.6%;
+          width: 21.725rem;
+          height: 1.9rem;
+        }
 
       }
 
