@@ -3,19 +3,16 @@
 
 .page-2 {
   background-color: #fff;
-  border: 1px solid blue;
-  min-height: 100vh;
   max-width: 100vw;
-  background-color: yellow;
 
   @include breakpoint-desktop-up {
       display: flex;
       flex-direction: row-reverse;
+      height: 712px;
+
   }
 
   .page-2__images-container {
-    //background-color: orange;
-    //opacity: .75;
     width: 100%;
     height: 24rem;
 

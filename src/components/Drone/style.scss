@@ -47,7 +47,6 @@
 
       .drone-img {
         bottom: 8.275%;
-        //border: 1px solid red;
         width: 25.625rem;
         height: 19.375rem;
 
@@ -102,11 +101,8 @@
 
 
   &.page2 {
+    box-sizing: border-box;
     height: 19rem;
-
-    //background-color: yellow;
-    //opacity: .5;
-
     padding-top: 2.5rem;
 
     @include breakpoint-tablet-up {
@@ -116,12 +112,9 @@
     }
 
     @include breakpoint-desktop-up {
-      //height: 21.5rem;
-      //padding: 0 31.5rem;
-      border: 1px solid blue;
-      width: 624px;
-      height: 712px;
-      padding: 0;
+      width: 39rem;
+      height: 44.5rem;
+      padding: 7.125rem 2.3rem 9.625rem 2.9rem;
     }
 
     .images-wrapper {
@@ -129,6 +122,12 @@
       //border: 1px solid blue;
       // Shadow width should be 79% of drone width
       // Shadhow height should be 9% of drone height
+
+      @include breakpoint-desktop-up {
+        //border: 1px solid blue;
+        width: 33.5rem;
+        height: 27.75rem;
+      }
 
       .drone-img {
         bottom: 5.9%;
@@ -145,21 +144,28 @@
         @include breakpoint-desktop-up {
           position: static;
           min-width: 26.8rem;
-          width: 26.8rem;
-          height: 20.8rem;
+          width: 33.5rem;
+          height: 25.75rem;
+          bottom: 7.2%;
         }
       }
 
       .shadow-img {
         //border: 1px solid orange;
-        bottom: 3.3%;
+        bottom: 2%;
         width: 15.9rem;
         height: 1.3rem;
 
         @include breakpoint-tablet-up {
-          bottom: 3.6%;
+          bottom: 2.5%;
           width: 21.725rem;
           height: 1.9rem;
+        }
+
+        @include breakpoint-desktop-up {
+          bottom: 3%;
+          width: 26.5rem;
+          height: 2.3rem;
         }
 
       }
