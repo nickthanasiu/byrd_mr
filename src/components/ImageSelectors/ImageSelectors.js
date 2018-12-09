@@ -32,12 +32,6 @@ export default class ImageSelectors extends Component {
     this.shouldToggle = this.shouldToggle.bind(this);
   }
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> Menu
   shouldToggle(e) {
     // Should only toggle if not already active (i.e, has the className active)
     if(!e.target.classList.contains('active')) {
@@ -63,10 +57,7 @@ export default class ImageSelectors extends Component {
                   className={className}
                   onClick={this.handleClick}
                   id={s.id}
-<<<<<<< HEAD
-=======
                   key={s.id}
->>>>>>> Menu
                 />
               );
             })
