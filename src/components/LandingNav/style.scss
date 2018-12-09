@@ -1,0 +1,174 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
+
+.landing-nav {
+
+  display: flex;
+  max-width: 100vw;
+  width: 100%;
+
+  background-color: $offwhite;
+
+  @include breakpoint-phone-down {
+    height: 4.875rem;
+  }
+
+  @include breakpoint-tablet-up {
+    height: 8.5rem;
+  }
+
+  @include breakpoint-desktop-up {
+    height: 10.0625rem;
+  }
+
+
+  .landing-nav__left {
+    width: 33%;
+    height: 100%;
+
+    .landing-nav__left--desktop {
+      height: 100%;
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .landing-nav__list {
+        font-family: 'Archivo', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 0.09375rem;
+        margin-top: 4.625rem;
+        margin-bottom: 4.4375rem;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        justify-content: center;
+
+        .landing-nav__list-item {
+
+          &:hover {
+            cursor: pointer;
+            color: $orange;
+          }
+
+          .left-item {
+            margin-right: 3.215rem;
+          }
+        }
+      }
+
+
+      .landing-nav__social-icons {
+        display: none;
+      }
+    }
+  }
+
+  .landing-nav__center {
+    width: 33%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .landing-logo_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .landing-logo {
+        width: 8.5rem;
+        height: 1.264rem;
+
+        @include breakpoint-tablet-up {
+          width: 13.5rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+
+  .landing-nav__right {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .landing-btn_container {
+      width: 66.4%;
+      position: relative;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .landing-menu_btn {
+        width: 1.8125rem;
+        height: .75rem;
+
+        position: absolute;
+        top: 43.6%;
+        right: 32.53%;
+      }
+
+      @include breakpoint-desktop-up {
+        display: none;
+      }
+    }
+
+    .landing-nav__right--desktop {
+      width: 100%;
+      height: 100%;
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+
+      @include breakpoint-desktop-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .landing-nav__list {
+        font-family: 'Archivo', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 0.09375rem;
+        margin-top: 4.625rem;
+        margin-bottom: 4.4375rem;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        justify-content: center;
+
+        .landing-nav__list-item {
+
+          &:hover {
+            cursor: pointer;
+            color: $orange;
+          }
+        }
+
+        .left-item {
+          margin-right: 3.215rem;
+        }
+      }
+
+      .landing-btn_container {
+        display: none;
+      }
+    }
+
+  }
+}

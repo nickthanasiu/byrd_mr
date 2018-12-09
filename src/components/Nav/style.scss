@@ -1,30 +1,72 @@
 @import '../../styles/_breakpoints.scss';
 @import '../../styles/_colors.scss';
 
-.nav {
+.dd-nav {
 
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
   display: flex;
   justify-content: space-around;
   max-width: 100vw;
   width: 100%;
 
-  border: 1px solid red;
-
-
   @include breakpoint-phone-down {
     height: 4.875rem;
   }
 
-  .nav__left {
+  @include breakpoint-tablet-up {
+
+    height: 6rem;
+  }
+
+  @include breakpoint-desktop-up {
+    height: 5.8rem;
+  }
+
+
+  .dd-nav__left {
     width: 33%;
     height: 100%;
 
-    .nav__left--desktop {
+
+    .dd-nav__left--desktop {
       height: 100%;
+
+      @include breakpoint-tablet-down {
+        display: none;
+      }
+
+      @include breakpoint-desktop-up {
+        /*
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        */
+        padding-left: 2.4rem;
+
+        display: flex;
+        align-items: center;
+
+      }
+
+      .dd-nav__list {
+        display: none;
+      }
+
+      .dd-nav__social-icons {
+        color: $social_icons;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 5.6rem;
+        height: 1.5rem;
+      }
     }
   }
 
-  .nav__center {
+  .dd-nav__center {
+
     width: 33%;
     height: 100%;
 
@@ -32,31 +74,35 @@
     justify-content: center;
     align-items: center;
 
-    .logo_container {
+
+    .dd-logo_container {
+
       display: flex;
       justify-content: center;
       align-items: center;
 
-      .logo {
+      .dd-logo {
+
         width: 8.5rem;
         height: 1.264rem;
 
         @include breakpoint-tablet-up {
-          width: 13.5rem;
-          height: 2rem;
+          width: 11rem;
+          height: 1.625rem;
         }
+
       }
     }
   }
 
-  .nav__right {
+  .dd-nav__right {
 
     width: 33%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
 
-    .btn_container {
+    .dd-btn_container {
       width: 66.4%;
       position: relative;
 
@@ -64,7 +110,11 @@
         cursor: pointer;
       }
 
-      .menu_btn {
+      @include breakpoint-desktop-up {
+        display: none;
+      }
+
+      .dd-menu_btn {
         width: 1.8125rem;
         height: .75rem;
 
@@ -72,13 +122,10 @@
         top: 43.6%;
         right: 32.53%;
       }
-
-      @include breakpoint-desktop-up {
-        display: none;
-      }
     }
 
-    .nav__right--desktop {
+
+    .dd-nav__right--desktop {
       width: 100%;
       height: 100%;
 
@@ -88,222 +135,29 @@
 
       @include breakpoint-desktop-up {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .dd-nav__list {
+        display: none;
+      }
+
+      .dd-btn_container--desktop {
+
+        @include breakpoint-desktop-up {
+
+          padding-right: 0;
+          display: flex;
+          align-items: center;
+          padding-right: 2.5rem;
+        }
+
+        .dd-menu_btn--desktop {
+          width: 29px;
+          height: 12px;
+        }
       }
     }
-
-
-
   }
-
-
-  /************* begin .nav.large  *************/
-  &.large {
-    background-color: $offwhite;
-
-    @include breakpoint-tablet-up {
-      height: 8.5rem;
-    }
-
-    @include breakpoint-desktop-up {
-      height: 10.0625rem;
-    }
-
-    .nav__left {
-
-      .nav__left--desktop {
-        @include breakpoint-tablet-down {
-          display: none;
-        }
-
-        @include breakpoint-desktop-up {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .nav__list {
-          font-family: 'Archivo', sans-serif;
-          font-size: 1rem;
-          font-weight: 400;
-          letter-spacing: 0.09375rem;
-          margin-top: 4.625rem;
-          margin-bottom: 4.4375rem;
-          padding: 0;
-          list-style: none;
-
-          display: flex;
-          justify-content: center;
-
-          .nav__list-item {
-
-            &:hover {
-              cursor: pointer;
-              color: $orange;
-            }
-          }
-
-          .left-item {
-            margin-right: 3.215rem;
-          }
-
-        }
-
-        .nav__social-icons {
-          display: none;
-        }
-      }
-    }
-
-    .nav__right {
-
-      .nav__right--desktop {
-
-        .nav__list {
-          font-family: 'Archivo', sans-serif;
-          font-size: 1rem;
-          font-weight: 400;
-          letter-spacing: 0.09375rem;
-          margin-top: 4.625rem;
-          margin-bottom: 4.4375rem;
-          padding: 0;
-          list-style: none;
-
-          display: flex;
-          justify-content: center;
-
-          .nav__list-item {
-
-            &:hover {
-              cursor: pointer;
-              color: $orange;
-            }
-          }
-
-          .left-item {
-            margin-right: 3.215rem;
-          }
-
-        }
-
-        .btn_container--desktop {
-          display: none;
-        }
-      }
-    }
-
-  }
-  /************* end .nav.large  *************/
-
-
-
-  /************* begin .nav.small  *************/
-
-  &.small {
-    background-color: white;
-    position: fixed;
-    z-index: 1000;
-
-    @include breakpoint-tablet-up {
-
-      height: 6rem;
-    }
-
-    @include breakpoint-desktop-up {
-      height: 93px;
-    }
-
-
-    .nav__left {
-
-      .nav__left--desktop {
-        @include breakpoint-tablet-down {
-          display: none;
-        }
-
-        @include breakpoint-desktop-up {
-          /*
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          */
-          padding-left: 39px;
-
-          display: flex;
-          align-items: center;
-
-        }
-
-        .nav__list {
-          display: none;
-        }
-
-        .nav__social-icons {
-          color: $social_icons;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 90px;
-          height: 25px;
-
-          li:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-          }
-
-        }
-      }
-    }
-
-    .nav__center {
-
-
-      .logo_container {
-
-        .logo {
-
-          @include breakpoint-tablet-up {
-            width: 175.5px;
-            height: 26px;
-          }
-
-        }
-      }
-    }
-
-    .nav__right {
-
-
-
-
-      .nav__right--desktop {
-        @include breakpoint-desktop-up {
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .nav__list {
-          display: none;
-        }
-
-        .btn_container--desktop {
-
-          @include breakpoint-desktop-up {
-            padding-right: 0;
-
-            display: flex;
-            padding-right: 39px;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-        }
-      }
-    }
-  } /************* end .nav.small  *************/
-
-
 
 }
