@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash/debounce';
-import Nav from '../../components/Nav';
 import Drone from '../../components/Drone';
 import LandingText from '../../components/LandingText';
 
@@ -11,7 +10,7 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      innView: true
+      inView: true
     };
 
     this.landingIsInView = this.landingIsInView.bind(this);
@@ -23,28 +22,27 @@ class LandingPage extends Component {
 
   componentDidUpdate() {
     this.landingIsInView();
-
   }
 
   landingIsInView() {
     if(this.state.inView) {
-      if((window.scrollY + this.props.navBottom) > this.page.offsetHeight) {
+      if(this.props.scrollY > this.page.offsetHeight) {
         console.log('Landing page is OUT of view!!');
         this.setState({
           inView: false
         }, () => {
-          this.props.shrinkNavBar();
+          this.props.showDropdown();
         });
       }
     }
 
     if(!this.state.inView) {
-      if ((window.scrollY + this.props.navBottom) < this.page.offsetHeight) {
+      if (this.props.scrollY < this.page.offsetHeight) {
         console.log('Landing page is IN view!!!');
         this.setState({
           inView: true
         }, () => {
-          this.props.growNavBar();
+          this.props.hideDropdown();
         });
       }
     }

@@ -1,5 +1,8 @@
 @import '../../styles/_breakpoints.scss';
 
+// Shadow width should be 79% of drone width
+// Shadhow height should be 9% of drone height
+
 .drone {
   box-sizing: border-box;
   display: flex;
@@ -17,7 +20,6 @@
 
     .drone-img {
       position: absolute;
-
     }
 
     .shadow-img {
@@ -45,7 +47,6 @@
 
       .drone-img {
         bottom: 8.275%;
-        border: 1px solid red;
         width: 25.625rem;
         height: 19.375rem;
 
@@ -100,39 +101,73 @@
 
 
   &.page2 {
+    box-sizing: border-box;
     height: 19rem;
-
     padding-top: 2.5rem;
 
     @include breakpoint-tablet-up {
       height: 25.5rem;
-      padding: 2.7rem 3.8rem 0;
+      //padding: 2.7rem 3.8rem 0;
+      padding: 2.7rem 10rem 0;
     }
 
     @include breakpoint-desktop-up {
-      //height: 21.5rem;
-      //padding: 0 31.5rem;
+      width: 39rem;
+      height: 44.5rem;
+      padding: 7.125rem 2.3rem 9.625rem 2.9rem;
     }
 
     .images-wrapper {
 
+      //border: 1px solid blue;
+      // Shadow width should be 79% of drone width
+      // Shadhow height should be 9% of drone height
+
+      @include breakpoint-desktop-up {
+        //border: 1px solid blue;
+        width: 33.5rem;
+        height: 27.75rem;
+      }
+
       .drone-img {
         bottom: 5.9%;
-        border: 1px solid red;
+        //border: 1px solid black;
         width: 20.125rem;
         height: 15.375rem;
 
         @include breakpoint-tablet-up {
-          width: 27.5rem;
-          height: 21.25rem;
+          bottom: 6.59%;
+          width: 27.5rem; //440
+          height: 21.25rem; //340
         }
 
         @include breakpoint-desktop-up {
           position: static;
           min-width: 26.8rem;
-          width: 26.8rem;
-          height: 20.8rem;
+          width: 33.5rem;
+          height: 25.75rem;
+          bottom: 7.2%;
         }
+      }
+
+      .shadow-img {
+        //border: 1px solid orange;
+        bottom: 2%;
+        width: 15.9rem;
+        height: 1.3rem;
+
+        @include breakpoint-tablet-up {
+          bottom: 2.5%;
+          width: 21.725rem;
+          height: 1.9rem;
+        }
+
+        @include breakpoint-desktop-up {
+          bottom: 3%;
+          width: 26.5rem;
+          height: 2.3rem;
+        }
+
       }
 
     }
