@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav';
 import Drone from '../../components/Drone';
+import ImageSelectors from '../../components/ImageSelectors';
 import Page2Text from '../../components/Page2Text';
 
 import './style.scss';
@@ -41,31 +42,11 @@ class Page2 extends Component {
         style={{ backgroundColor: '#fff' }}
         ref={(elem) => this.page = elem}
       >
-
-      <div className="page-2__images-container">
-
-        <Drone page={'page2'}  />
-
-        <div className="page-2__image-selectors">
-          <ul className="selectors">
-            <li className="selectors__1 active"></li>
-            <li className="selectors__2"></li>
-            <li className="selectors__3"></li>
-          </ul>
+        <div className="page-2__images-container">
+          <Drone page={'page2'}  />
+          <ImageSelectors />
         </div>
-      </div>
-
-      <div className="page-2__text-container">
-        <div className="page-2__text-header">
-          <div className="page-2__text-title">
-            Craft and design.
-          </div>
-          <div className="page-2__title-underline" />
-        </div>
-
         <Page2Text />
-      </div>
-
       </div>
     );
   }

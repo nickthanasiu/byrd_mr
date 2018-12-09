@@ -118,6 +118,10 @@
     @include breakpoint-desktop-up {
       //height: 21.5rem;
       //padding: 0 31.5rem;
+      border: 1px solid blue;
+      width: 624px;
+      height: 712px;
+      padding: 0;
     }
 
     .images-wrapper {

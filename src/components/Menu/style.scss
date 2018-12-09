@@ -1,6 +1,7 @@
 @import '../../styles/_colors.scss';
 
 .menu {
+  z-index: 1000;
 
   transition: transform 3s ease-in;
 

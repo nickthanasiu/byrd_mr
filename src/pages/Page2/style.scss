@@ -3,12 +3,19 @@
 
 .page-2 {
   background-color: #fff;
-  //border: 1px solid blue;
+  border: 1px solid blue;
   min-height: 100vh;
   max-width: 100vw;
+  background-color: yellow;
+
+  @include breakpoint-desktop-up {
+      display: flex;
+      flex-direction: row-reverse;
+  }
 
   .page-2__images-container {
-    //border: 1px solid orange;
+    //background-color: orange;
+    //opacity: .75;
     width: 100%;
     height: 24rem;
 
@@ -16,93 +23,15 @@
       height: 33.25rem;
     }
 
-    .page-2__image-selectors {
-      width: 12rem;
-      height: 3.5rem;
-      margin: 0 auto;
+    @include breakpoint-desktop-up {
+      width: 45rem;
+      height: 44.5rem;
 
       display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .selectors {
-        box-sizing: border-box;
-        width: 5.875rem;
-        height: .125rem;
-        z-index: 1000;
-
-        display: flex;
-        justify-content: space-between;
-
-         li {
-          background-color: $image_selectors;
-          border-radius: 5.5px;
-          height: .125rem;
-
-          width: 1.875rem;
-
-          &:hover {
-            cursor: pointer;
-          }
-
-          &.active {
-            background-color: $menu;
-          }
-        }
-      }
     }
+
+
   }
 
-  .page-2__text-container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 23rem;
-    padding-left: 1.7rem;
-    padding-right: 1.7rem;
 
-    font-family: 'Archivo Medium', sans-serif;
-
-    @include breakpoint-tablet-up {
-      height: 24.7rem;
-      padding: 0 3.75rem 170px;
-    }
-
-    .page-2__text-header {
-      width: 100%;
-      height: 5rem;
-
-      @include breakpoint-tablet-up {
-        height: 6rem;
-      }
-
-      .page-2__text-title {
-        width: 100%;
-        height: 2.25rem;
-
-        font-size: 2rem;
-        color: $page_2_title;
-
-        @include breakpoint-tablet-up {
-          height: 3rem;
-          font-size: 2.75rem;
-        }
-      }
-
-      .page-2__title-underline {
-        background-color: $menu;
-        width: 5.125rem;
-        height: .25rem;
-
-        margin-top: .625rem;
-
-        @include breakpoint-tablet-up {
-          width: 5.125rem;
-          height: .25rem;
-
-          margin-top: .875rem;
-        }
-      }
-    }
-
-  }
 }

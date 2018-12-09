@@ -10,6 +10,8 @@
   width: 100%;
   z-index: 1000;
 
+  border: 1px solid red;
+
 
   @include breakpoint-phone-down {
     height: 4.875rem;

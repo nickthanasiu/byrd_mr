@@ -1,18 +1,71 @@
 @import '../../styles/_breakpoints.scss';
 @import '../../styles/_colors.scss';
 
-.page-2__text {
-  width: 20.125rem;
-  height: 16.625rem;
-  color: $page_2_text;
-  font-size: 1rem;
-  line-height: 1.625rem;
+.page-2__text-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 23rem;
+  padding-left: 1.7rem;
+  padding-right: 1.7rem;
+
+  font-family: 'Archivo Medium', sans-serif;
 
   @include breakpoint-tablet-up {
-    width: 40.5rem;
-    height: 14.375rem;
-    font-size: 1.25rem;
-    line-height: 2rem;
+    height: 24.7rem;
+    padding: 0 3.75rem 170px;
+  }
+
+  .page-2__text-header {
+    width: 100%;
+    height: 5rem;
+
+    @include breakpoint-tablet-up {
+      height: 6rem;
+    }
+
+    .page-2__text-title {
+      width: 100%;
+      height: 2.25rem;
+
+      font-size: 2rem;
+      color: $page_2_title;
+
+      @include breakpoint-tablet-up {
+        height: 3rem;
+        font-size: 2.75rem;
+      }
+    }
+
+    .page-2__title-underline {
+      background-color: $menu;
+      width: 5.125rem;
+      height: .25rem;
+
+      margin-top: .625rem;
+
+      @include breakpoint-tablet-up {
+        width: 5.125rem;
+        height: .25rem;
+
+        margin-top: .875rem;
+      }
+    }
+  }
+
+  .page-2__text {
+    width: 20.125rem;
+    height: 16.625rem;
+    color: $page_2_text;
+    font-size: 1rem;
+    line-height: 1.625rem;
+
+    @include breakpoint-tablet-up {
+      width: 40.5rem;
+      height: 14.375rem;
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+
   }
 
 }
