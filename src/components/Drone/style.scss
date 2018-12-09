@@ -1,7 +1,6 @@
 @import '../../styles/_breakpoints.scss';
 
 .drone {
-  border: 1px solid blue;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -46,7 +45,6 @@
 
       .drone-img {
         bottom: 8.275%;
-        border: 1px solid red;
         width: 25.625rem;
         height: 19.375rem;
 
@@ -119,7 +117,6 @@
 
       .drone-img {
         bottom: 5.9%;
-        border: 1px solid red;
         width: 20.125rem;
         height: 15.375rem;
 

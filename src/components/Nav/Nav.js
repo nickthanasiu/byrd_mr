@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+
+import LandingNav from '../LandingNav';
 import Logo from '../../assets/logo/Logo.png';
 import MenuButton from '../../assets/icons/Menu.png';
 import WhiteMenuButton from '../../assets/icons/menu_button_white.png';
@@ -9,20 +11,21 @@ import { facebookSquare, instagram, twitter } from 'react-icons-kit/fa/';
 import './style.scss';
 
 export default (ChildComponent) => {
-  class Nav extends Component {
+  class DropdownNav extends Component {
     constructor(props) {
       super(props);
 
       this.state = {
-        navBottom: null,
         navBackgroundColor: null,
-        navSize: 'large'
+        scrollY: 0,
+        dropdownVisible: false,
+        landingIsInView: true,
       };
 
       this.handleScroll = this.handleScroll.bind(this);
       this.throttledScrollHandler = throttle(this.handleScroll, 250);
-      this.shrinkNavBar = this.shrinkNavBar.bind(this);
-      this.growNavBar = this.growNavBar.bind(this);
+      this.showDropdown = this.showDropdown.bind(this);
+      this.hideDropdown = this.hideDropdown.bind(this);
       //this.scrollHelper = this.scrollHelper.bind(this);
       //this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
     }
@@ -37,22 +40,26 @@ export default (ChildComponent) => {
 
     handleScroll() {
       this.setState({
-        navBottom: this.nav.offsetHeight
+        scrollY: window.scrollY
       });
     }
 
-    shrinkNavBar() {
-      if (this.state.navSize === 'large') {
+
+    showDropdown() {
+      if (this.state.dropdownVisible === false ) {
         this.setState({
-          navSize: 'small'
+          dropdownVisible: true,
+          landingIsInView: false,
         });
       }
     }
 
-    growNavBar() {
-      if (this.state.navSize === 'small') {
+    hideDropdown() {
+      console.log('hiding dropdown');
+      if (this.state.dropdownVisible === true) {
         this.setState({
-          navSize: 'large'
+          dropdownVisible: false,
+          landingIsInView: true,
         });
       }
     }
@@ -83,69 +90,77 @@ export default (ChildComponent) => {
 
 
     render() {
-      const { navSize } = this.state;
+      const { landingIsInView, menuOpen } = this.state;
+      const menuState = menuOpen ? 'open' : 'closed';
 
       return (
         <div className="composedComponent">
-          <nav className={`nav ${navSize}`} ref={(elem) => this.nav = elem}>
-            <div className="nav__left">
-              <div className="nav__left--desktop">
-                <ul className="nav__list">
-                  <li className="nav__list-item left-item">
-                    STORE
-                  </li>
-                  <li className="nav__list-item">
-                    TUTORIALS
-                  </li>
-                </ul>
+          {
+            landingIsInView ?
+              <LandingNav /> :
+                (
+                  <nav className="dd-nav" ref={(elem) => this.nav = elem}>
+                    <div className="dd-nav__left">
+                      <div className="dd-nav__left--desktop">
+                        <ul className="dd-nav__list">
+                          <li className="dd-nav__list-item left-item">
+                            STORE
+                          </li>
+                          <li className="dd-nav__list-item">
+                            TUTORIALS
+                          </li>
+                        </ul>
 
-                <ul className="nav__social-icons">
-                  <li>
-                    <Icon icon={facebookSquare} size={26} />
-                  </li>
-                  <li>
-                    <Icon icon={instagram} size={26} />
-                  </li>
-                  <li>
-                    <Icon icon={twitter} size={26} />
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="nav__center">
-              <div className="logo_container">
-                <img className="logo" src={Logo} />
-              </div>
-            </div>
-            <div className="nav__right">
-              <div className="btn_container">
-                <img className="menu_btn" src={MenuButton} />
-              </div>
+                        <ul className="dd-nav__social-icons">
+                          <li>
+                            <Icon icon={facebookSquare} size={26} />
+                          </li>
+                          <li>
+                            <Icon icon={instagram} size={26} />
+                          </li>
+                          <li>
+                            <Icon icon={twitter} size={26} />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="dd-nav__center">
+                      <div className="dd-logo_container">
+                        <img className="dd-logo" src={Logo} />
+                      </div>
+                    </div>
+                    <div className="dd-nav__right">
+                      <div className="dd-btn_container">
+                        <img className="dd-menu_btn" src={WhiteMenuButton} />
+                      </div>
 
-              <div className="nav__right--desktop">
-                <ul className="nav__list">
-                  <li className="nav__list-item left-item">
-                    BLOG
-                  </li>
-                  <li className="nav__list-item">
-                    CONTACT
-                  </li>
-                </ul>
+                      <div className="dd-nav__right--desktop">
+                        <ul className="dd-nav__list">
+                          <li className="dd-nav__list-item left-item">
+                            BLOG
+                          </li>
+                          <li className="dd-nav__list-item">
+                            CONTACT
+                          </li>
+                        </ul>
 
-                <div className="btn_container--desktop">
-                  <img className="menu_btn--desktop" src={WhiteMenuButton} />
-                </div>
-              </div>
-            </div>
-          </nav>
+                        <div
+                          className="dd-btn_container--desktop">
+                          <img className="dd-menu_btn--desktop" src={WhiteMenuButton} />
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                )
+          }
 
           <div className="child-component-content">
             <ChildComponent
               {...this.props}
               scrollHelper={this.scrollHelper}
-              navBottom={this.state.navBottom}
-              shrinkNavBar={this.shrinkNavBar}
-              growNavBar={this.growNavBar}
+              showDropdown={this.showDropdown}
+              hideDropdown={this.hideDropdown}
+              scrollY={this.state.scrollY}
             />
           </div>
         </div>
@@ -153,5 +168,5 @@ export default (ChildComponent) => {
     }
   }
 
-  return Nav;
+  return DropdownNav;
 };

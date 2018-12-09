@@ -1,5 +1,34 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
+
 .page-2 {
   background-color: #fff;
-  min-height: 100vh;
-  max-width: 100vw;;
+  max-width: 100vw;
+
+  @include breakpoint-desktop-up {
+      display: flex;
+      flex-direction: row-reverse;
+      height: 712px;
+
+  }
+
+  .page-2__images-container {
+    width: 100%;
+    height: 24rem;
+
+    @include breakpoint-tablet-up {
+      height: 33.25rem;
+    }
+
+    @include breakpoint-desktop-up {
+      width: 45rem;
+      height: 44.5rem;
+
+      display: flex;
+    }
+
+
+  }
+
+
 }
