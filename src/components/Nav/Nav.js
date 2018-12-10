@@ -4,6 +4,7 @@ import throttle from 'lodash.throttle';
 import LandingNav from '../LandingNav';
 import Menu from '../Menu';
 import Logo from '../../assets/logo/Logo.png';
+import LogoBlackBackground from '../../assets/logo/logo_black_background.png';
 import MenuButton from '../../assets/icons/Menu.png';
 import WhiteMenuButton from '../../assets/icons/menu_button_white.png';
 import { Icon } from 'react-icons-kit'
@@ -18,7 +19,9 @@ export default (ChildComponent) => {
 
       this.state = {
         navBackgroundColor: null,
+        navLogo: null,
         scrollY: 0,
+        navBottom: null,
         dropdownVisible: false,
         landingIsInView: true,
         menuOpen: false,
@@ -29,8 +32,18 @@ export default (ChildComponent) => {
       this.showDropdown = this.showDropdown.bind(this);
       this.hideDropdown = this.hideDropdown.bind(this);
       this.toggleMenu = this.toggleMenu.bind(this);
+      this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
       //this.scrollHelper = this.scrollHelper.bind(this);
-      //this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
+
+      this.backgroundColors = {
+        page2: '#fff',
+        page3: '#040404',
+      };
+
+      this.logos = {
+        page2: Logo,
+        page3: LogoBlackBackground
+      };
     }
 
     componentDidMount() {
@@ -42,9 +55,16 @@ export default (ChildComponent) => {
     }
 
     handleScroll() {
+      //console.log('scrollY: ', window.scrollY);
       this.setState({
-        scrollY: window.scrollY
+        scrollY: window.scrollY,
       });
+
+      if (!this.state.landingIsInView) {
+        this.setState({
+          navBottom: this.nav.offsetHeight
+        });
+      }
     }
 
 
@@ -58,7 +78,6 @@ export default (ChildComponent) => {
     }
 
     hideDropdown() {
-      console.log('hiding dropdown');
       if (this.state.dropdownVisible === true) {
         this.setState({
           dropdownVisible: false,
@@ -73,39 +92,29 @@ export default (ChildComponent) => {
       });
     }
 
-
-
-  /*
-  scrollHelper(currentPage) {
-    console.log('firing scroll helper');
-    let offset = currentPage.getBoundingClientRect().top;
-    let navBottom = this.state.navBottom;
-    console.log('offset: ', offset);
-    console.log('navBottom: ', navBottom);
-    if (offset < navBottom) {
-      this.updateBackgroundColor(currentPage);
+    updateBackgroundColor(page) {
+      const backgroundColor = this.backgroundColors[page];
+      const logo = this.logos[page];
+      this.setState({
+        navBackgroundColor: backgroundColor,
+        navLogo: logo,
+      });
     }
-  }
-  updateBackgroundColor(currentPage) {
-    console.log('Background color is: ', currentPage.style.backgroundColor);
-    this.setState({
-      navBackgroundColor: currentPage.style.backgroundColor
-    });
-  }
-  */
-
 
     render() {
-      const { landingIsInView, menuOpen } = this.state;
+      const { landingIsInView, menuOpen, navBackgroundColor, navLogo } = this.state;
       const menuState = menuOpen ? 'open' : 'closed';
-
       return (
         <div className="composedComponent">
           {
             landingIsInView ?
               <LandingNav /> :
                 (
-                  <nav className="dd-nav" ref={(elem) => this.nav = elem}>
+                  <nav
+                    className="dd-nav"
+                    ref={(elem) => this.nav = elem}
+                    style={{ backgroundColor: `${navBackgroundColor}`}}
+                  >
                     <div className="dd-nav__left">
                       <div className="dd-nav__left--desktop">
                         <ul className="dd-nav__list">
@@ -132,7 +141,7 @@ export default (ChildComponent) => {
                     </div>
                     <div className="dd-nav__center">
                       <div className="dd-logo_container">
-                        <img className="dd-logo" src={Logo} />
+                        <img className="dd-logo" src={navLogo} />
                       </div>
                     </div>
                     <div className="dd-nav__right">
@@ -170,7 +179,9 @@ export default (ChildComponent) => {
               scrollHelper={this.scrollHelper}
               showDropdown={this.showDropdown}
               hideDropdown={this.hideDropdown}
+              updateBackgroundColor={this.updateBackgroundColor}
               scrollY={this.state.scrollY}
+              navBottom={this.state.navBottom}
             />
           </div>
         </div>

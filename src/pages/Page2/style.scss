@@ -3,17 +3,18 @@
 
 .page-2 {
   background-color: #fff;
-  max-width: 100vw;
+  overflow: scroll;
+  //max-width: 100vw;
 
   @include breakpoint-desktop-up {
       display: flex;
       flex-direction: row-reverse;
-      height: 712px;
+      height: 44.5rem;
 
   }
 
   .page-2__images-container {
-    width: 100%;
+    //width: 100%;
     height: 24rem;
 
     @include breakpoint-tablet-up {
