@@ -5,6 +5,11 @@
   height: 8rem;
   width: 100%;
 
+  @include breakpoint-smallphone-down {
+    width: 90%;
+    margin: 0 auto;
+  }
+
 
 
   @include breakpoint-tablet-up {
@@ -15,8 +20,12 @@
     //border: 1px solid red;
   }
 
+  @include breakpoint-desktop-up {
+    width: 100%;
+    height: 10.75rem;
+  }
+
   .page-3__specs-list {
-    //border: 1px solid white;
     width: 100%;
     height: 100%;
 
@@ -24,11 +33,20 @@
     justify-content: center;
 
     @include breakpoint-tablet-up {
-      display: flex;
+      //display: flex;
       flex-direction: column;
       align-items: flex-end;
 
       height: 22rem;
+    }
+
+    @include breakpoint-desktop-up {
+      flex-direction: row;
+      align-items: center;
+      width: 35rem;
+      height: 100%;
+      margin: 0 auto;
+
     }
 
     .page-3__spec-item {
@@ -41,8 +59,11 @@
       align-items: center;
 
       @include breakpoint-tablet-up {
-        //border: 1px solid white;
         width: 7.375rem;
+      }
+
+      @include breakpoint-desktop-up {
+        width: 33%;
       }
 
 
@@ -65,9 +86,10 @@
         letter-spacing: 0.79px;
 
         @include breakpoint-tablet-up {
-          font-size: 14px;
+          font-size: .875rem;
           letter-spacing: 1px;
         }
+
       }
     }
   }

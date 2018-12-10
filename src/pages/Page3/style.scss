@@ -5,33 +5,53 @@
   background-color: $page_3_black;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
 
-  
-
-  .page-3__body {
-    //background-color: red;
-    min-width: 23.4rem;
-    width: 100%;
-    height: 29rem;
-    //opacity: .5;
-
-    @include breakpoint-tablet-up {
-      height: 28rem;
-      min-width: 48rem;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-
-
-
+  @include breakpoint-desktop-up {
+    display: block;
   }
 
+  .page-3__wrapper {
+
+    @include breakpoint-desktop-up {
+      display: none;
+      background-color: yellow;
+    }
+
+    .page-3__body {
+      min-width: 23.4rem;
+      width: 100%;
+      height: 29rem;
+
+      @include breakpoint-tablet-up {
+        height: 28rem;
+        min-width: 48rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
 
 
 
 
+    }
+  }
+
+  .page-3--desktop {
+    display: none;
+
+    @include breakpoint-desktop-up {
+      //background-color: yellow;
+      display: block;
+      margin-left: 7.7%;
+      margin-right: 6.5%;
+    }
+
+    .page-3__body--desktop {
+      display: flex;
+      //height: 29.5rem;
+      height: 33.7rem;;
+    }
+  }
 
 }

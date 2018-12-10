@@ -8,8 +8,6 @@
   display: flex;
   justify-content: center;
 
-
-
   padding: 2.18rem 4.56rem 4.62rem 2rem;
 
   @include breakpoint-tablet-up {
@@ -21,7 +19,15 @@
     padding-left: 23.7%;
   }
 
+  @include breakpoint-desktop-up {
+    min-width: 26rem;
+    width: 48%;
+    height: 100%;
+    padding: 0;
+  }
+
   .camera__img {
+    min-width: 16.8rem;
     width: 16.8rem;
     height: 17.3rem;
 
@@ -29,6 +35,17 @@
       width: 21.31rem;
       height: 22rem;
 
+    }
+
+    @include breakpoint-desktop-up {
+      min-width: 447px;
+      width: 28rem;
+      min-height: 460px;
+      height: 28.75rem;
+      margin-top: 1.5rem;
+      margin-right: 8rem;
+      margin-bottom: 9rem;
+      margin-left: 1rem;
     }
   }
 }

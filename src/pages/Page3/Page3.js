@@ -53,9 +53,18 @@ export default class Page3 extends Component {
         className="page-3"
         ref={(elem) => this.page = elem}
       >
-        <Camera />
-        <div className="page-3__body">
-          <Page3Text />
+        <div className="page-3__wrapper">
+          <Camera />
+          <div className="page-3__body">
+            <Page3Text />
+            <Page3Specs />
+          </div>
+        </div>
+        <div className="page-3--desktop">
+          <div className="page-3__body--desktop">
+            <Camera />
+            <Page3Text />
+          </div>
           <Page3Specs />
         </div>
       </div>

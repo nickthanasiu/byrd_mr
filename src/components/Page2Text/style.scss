@@ -3,7 +3,8 @@
 
 .page-2__text-container {
   box-sizing: border-box;
-  //width: 100%;
+  border: 1px solid blue;
+  width: 50%;
   height: 23rem;
   //padding-left: 1.7rem;
   //padding-right: 1.7rem;
@@ -29,12 +30,13 @@
 
     @include breakpoint-desktop-up {
       display: flex;
-      width: 6.125rem;
+      max-width: 6.125rem;
       height: 100%;
 
       display: flex;
       justify-content: center;
       align-items: center;
+      border: 1px solid black;
     }
 
     .page-2__text-sidebar-content {
