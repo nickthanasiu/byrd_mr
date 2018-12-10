@@ -7,11 +7,9 @@
   height: 21rem;
 
   @include breakpoint-tablet-up {
-    //min-width: 32rem;
-    width: 67%;
-    width: 28.4rem;
 
-    height: 28.3rem;
+    width: 28.4rem;
+    height: 28.4rem;
   }
 
   .page-3__text-sidebar {
@@ -24,25 +22,44 @@
 
   .page-3__text-body {
     font-family: 'Archivo Medium', sans-serif;
+    //border: 1px solid white;
     color: #fff;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     padding: 0 1.7rem 1.625rem;
 
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @include breakpoint-tablet-up {
+      padding: 0;
+    }
+
     .page-3__text-header {
       width: 100%;
       height: 4.625rem;
+
+
+      @include breakpoint-tablet-up {
+        height: 5.875rem;
+        //border: 1px solid white;
+
+      }
 
       .page-3__text-title {
         width: 100%;
         height: 2.25rem;
 
         font-size: 2rem;
+
+        @include breakpoint-tablet-up {
+          //border: 1px solid white;
+          height: 3rem;
+          font-size: 2.75rem;
+        }
       }
 
       .page-3__title-underline {
@@ -51,6 +68,11 @@
         background-color: $menu;
         margin-top: .625rem;
         margin-bottom: 1.5rem;
+
+        @include breakpoint-tablet-up {
+          margin-top: .875rem;
+          margin-bottom: 1.75rem;
+        }
       }
     }
 
@@ -60,6 +82,13 @@
       font-size: 1rem;
       line-height: 1.625rem;
       color: $page_3_text;
+
+      @include breakpoint-tablet-up {
+        width: 100%;
+        height: 19.7rem;
+        font-size: 1.25rem;
+        line-height: 2rem;
+      }
     }
   }
 

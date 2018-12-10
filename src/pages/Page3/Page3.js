@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Camera from '../../assets/images/camera.png';
+import Camera from '../../components/Camera';
 import Page3Text from '../../components/Page3Text';
 import Page3Specs from '../../components/Page3Specs';
 
@@ -28,7 +28,6 @@ export default class Page3 extends Component {
     const { scrollY, navBottom } = this.props;
     if (!this.state.inView) {
       if ((scrollY + navBottom) >= this.page.offsetTop) {
-        console.log('Page 3 is IN view!!');
         this.setState({
           inView: true
         }, () => {
@@ -39,7 +38,6 @@ export default class Page3 extends Component {
 
     if (this.state.inView) {
       if ((scrollY + navBottom) < this.page.offsetTop) {
-        console.log('Page 3 is OUT of view');
         this.setState({
           inView: false
         }, () => {
@@ -55,9 +53,7 @@ export default class Page3 extends Component {
         className="page-3"
         ref={(elem) => this.page = elem}
       >
-        <div className="page-3__img-container">
-          <img className="page-3__img" src={Camera} />
-        </div>
+        <Camera />
         <div className="page-3__body">
           <Page3Text />
           <Page3Specs />

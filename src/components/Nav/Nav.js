@@ -54,7 +54,6 @@ export default (ChildComponent) => {
     }
 
     handleScroll() {
-      //console.log('scrollY: ', window.scrollY);
       this.setState({
         scrollY: window.scrollY,
       });
@@ -92,11 +91,9 @@ export default (ChildComponent) => {
     }
 
     updateBackgroundColor(page) {
-      const backgroundColor = this.backgroundColors[page];
-      const logo = this.logos[page];
       this.setState({
-        navBackgroundColor: backgroundColor,
-        navLogo: logo,
+        navBackgroundColor: this.backgroundColors[page],
+        navLogo: this.logos[page],
       });
     }
 
