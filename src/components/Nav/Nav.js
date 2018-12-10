@@ -18,8 +18,8 @@ export default (ChildComponent) => {
       super(props);
 
       this.state = {
-        navBackgroundColor: null,
-        navLogo: null,
+        navBackgroundColor: '#fff',
+        navLogo: Logo,
         scrollY: 0,
         navBottom: null,
         dropdownVisible: false,
@@ -33,7 +33,6 @@ export default (ChildComponent) => {
       this.hideDropdown = this.hideDropdown.bind(this);
       this.toggleMenu = this.toggleMenu.bind(this);
       this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
-      //this.scrollHelper = this.scrollHelper.bind(this);
 
       this.backgroundColors = {
         page2: '#fff',

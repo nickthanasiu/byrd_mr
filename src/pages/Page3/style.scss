@@ -28,7 +28,7 @@
     .page-3__img {
       width: 16.8rem;
       height: 17.3rem;
-      border: 1px solid white;
+      //border: 1px solid white;
 
       @include breakpoint-tablet-up {
         width: 21.31rem;
@@ -53,39 +53,7 @@
       justify-content: center;
     }
 
-    .page-3__text-container {
-      min-width: 23.4rem;
-      width: 100%;
-      height: 21rem;
-      //background-color: orange;
-      border: 1px solid orange;
 
-
-
-      @include breakpoint-tablet-up {
-        //min-width: 32rem;
-        width: 67%;
-        width: 28.4rem;
-
-        height: 28.3rem;
-      }
-    }
-
-    .page-3__specs {
-      //background-color: purple;
-      border: 1px solid purple;
-      height: 8rem;
-      width: 100%;
-
-
-      @include breakpoint-tablet-up {
-        //min-width: 15.8rem;
-        //width: 15.8rem;
-        width: 33%;
-        width: 11.5rem;
-        height: 28.3rem;
-      }
-    }
 
 
   }

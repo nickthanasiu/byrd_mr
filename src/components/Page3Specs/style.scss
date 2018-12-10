@@ -1,0 +1,47 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
+
+.page-3__specs {
+  height: 8rem;
+  width: 100%;
+
+
+  @include breakpoint-tablet-up {
+    width: 33%;
+    width: 11.5rem;
+    height: 28.3rem;
+  }
+
+  .page-3__specs-list {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    .page-3__spec-item {
+      width: 7.8rem;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+
+
+      .spec {
+        color: #fff;
+        font-family: 'Archivo Regular', sans-serif;
+        font-size: 2.125rem;
+      }
+
+      .spec-descriptor {
+        color: $page_3_specs;
+        color: $page_3_text;
+        font-family: 'Archivo Medium', sans-serif;
+        font-size: 0.6875rem;
+        letter-spacing: 0.79px;
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Camera from '../../assets/images/camera.png';
+import Page3Text from '../../components/Page3Text';
+import Page3Specs from '../../components/Page3Specs';
 
 import './style.scss';
 
@@ -25,7 +27,6 @@ export default class Page3 extends Component {
   page3IsInView() {
     const { scrollY, navBottom } = this.props;
     if (!this.state.inView) {
-      //console.log('page 3 top: ', this.page.offsetHeight);
       if ((scrollY + navBottom) >= this.page.offsetTop) {
         console.log('Page 3 is IN view!!');
         this.setState({
@@ -58,12 +59,8 @@ export default class Page3 extends Component {
           <img className="page-3__img" src={Camera} />
         </div>
         <div className="page-3__body">
-          <div className="page-3__text-container">
-
-          </div>
-          <div className="page-3__specs">
-
-          </div>
+          <Page3Text />
+          <Page3Specs />
         </div>
       </div>
     );
