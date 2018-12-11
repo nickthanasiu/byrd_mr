@@ -37,11 +37,13 @@ export default (ChildComponent) => {
       this.backgroundColors = {
         page2: '#fff',
         page3: '#040404',
+        page4: '#fff',
       };
 
       this.logos = {
         page2: Logo,
-        page3: LogoBlackBackground
+        page3: LogoBlackBackground,
+        page4: Logo,
       };
     }
 

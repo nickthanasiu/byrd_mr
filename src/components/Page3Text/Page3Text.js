@@ -5,11 +5,6 @@ import './style.scss';
 const Page3Text = () => {
   return (
     <div className="page-3__text-container">
-      <div className="page-3__text-sidebar">
-        <p className="page-3__text-sidebar-content">
-          F-310 PERFORMANCE RACING DRONE
-        </p>
-      </div>
       <div className="page-3__text-body">
         <div className="page-3__text-header">
           <div className="page-3__text-title">
