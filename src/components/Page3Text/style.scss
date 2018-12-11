@@ -26,14 +26,6 @@
     padding: 0;
   }
 
-  .page-3__text-sidebar {
-    display: none;
-
-    @include breakpoint-desktop-up {
-
-    }
-  }
-
   .page-3__text-body {
     font-family: 'Archivo Medium', sans-serif;
     color: #fff;
@@ -50,21 +42,14 @@
     }
 
     @include breakpoint-desktop-up {
-
-
-
       margin-top: 4.4rem;
       margin-right: 3.8rem;
       margin-bottom: 5rem;
       margin-left: 7rem;
 
-
-      //min-width: 447px;
       min-width: 22rem;
       width: 68%;
-      //min-height: 460px;
       height: 24rem;
-      //height: 385px;
     }
 
     .page-3__text-header {

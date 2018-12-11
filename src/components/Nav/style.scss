@@ -154,6 +154,10 @@
           display: flex;
           align-items: center;
           padding-right: 2.5rem;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         .dd-menu_btn--desktop {

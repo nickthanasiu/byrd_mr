@@ -11,6 +11,11 @@
     height: 24.7rem;
   }
 
+  @include breakpoint-desktop-up {
+    width: 89.5%;
+    height: 44.5rem;
+  }
+
   .page-4__text-body {
     font-family: 'Archivo Medium', sans-serif;
     box-sizing: border-box;
@@ -20,20 +25,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    //border: 1px solid blue;
 
     @include breakpoint-tablet-up {
-      //background-color: yellow;
       padding: 0 3.75rem 9.4rem;
     }
 
-    .page-4__text-header {
+    @include breakpoint-desktop-up {
+      padding: 0;
+      margin-top: 10.25rem;
+      margin-bottom: 16rem;
+      width: 100%;
+      height: 18.4rem;
+    }
 
-      //border: 1px solid black;
+    .page-4__text-header {
       min-width: 17.5rem;
       width: 100%;
       height: 4.4rem;
-
 
       @include breakpoint-tablet-up {
         height: 6rem;
@@ -58,17 +66,18 @@
         margin-bottom: 1.3rem;
 
         @include breakpoint-tablet-up {
-          width: 5.125rem;
-          height: .25rem;
           margin-top: .875rem;
           margin-bottom: 4.8rem;
+        }
+
+        @include breakpoint-desktop-up {
+          margin-bottom: 2rem;
         }
       }
 
     }
 
     .page-4__text {
-      //border: 1px solid black;
       width: 100%;
       height: 13.3rem;
       font-size: 1rem;
@@ -79,6 +88,10 @@
         height: 9.25rem;
         font-size: 1.25rem;
         line-height: 2rem;
+      }
+
+      @include breakpoint-desktop-up {
+        height: 12.5rem;
       }
     }
 
