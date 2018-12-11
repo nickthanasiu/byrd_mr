@@ -1,0 +1,96 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
+
+.page-3__specs {
+  height: 8rem;
+  width: 100%;
+
+  @include breakpoint-smallphone-down {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+
+
+  @include breakpoint-tablet-up {
+    width: 33%;
+    width: 11.5rem;
+    height: 28.3rem;
+
+    //border: 1px solid red;
+  }
+
+  @include breakpoint-desktop-up {
+    width: 100%;
+    height: 10.75rem;
+  }
+
+  .page-3__specs-list {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint-tablet-up {
+      //display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      height: 22rem;
+    }
+
+    @include breakpoint-desktop-up {
+      flex-direction: row;
+      align-items: center;
+      width: 35rem;
+      height: 100%;
+      margin: 0 auto;
+
+    }
+
+    .page-3__spec-item {
+      width: 7.8rem;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint-tablet-up {
+        width: 7.375rem;
+      }
+
+      @include breakpoint-desktop-up {
+        width: 33%;
+      }
+
+
+
+      .spec {
+        color: #fff;
+        font-family: 'Archivo Regular', sans-serif;
+        font-size: 2.125rem;
+
+        @include breakpoint-tablet-up {
+          font-size: 3.25rem;
+        }
+      }
+
+      .spec-descriptor {
+        color: $page_3_specs;
+        color: $page_3_text;
+        font-family: 'Archivo Medium', sans-serif;
+        font-size: 0.6875rem;
+        letter-spacing: 0.79px;
+
+        @include breakpoint-tablet-up {
+          font-size: .875rem;
+          letter-spacing: 1px;
+        }
+
+      }
+    }
+  }
+}

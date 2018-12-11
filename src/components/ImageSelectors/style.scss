@@ -2,7 +2,6 @@
 @import '../../styles/_breakpoints.scss';
 
 .image-selectors {
-  //border: 1px solid red;
   width: 12rem;
   height: 3.5rem;
   margin: 0 auto;
@@ -17,11 +16,9 @@
   }
 
   .selectors {
-    border: 1px solid black;
     box-sizing: border-box;
     width: 5.875rem;
     height: .125rem;
-    //z-index: 100;
 
     display: flex;
     justify-content: space-between;

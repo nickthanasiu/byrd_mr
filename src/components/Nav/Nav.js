@@ -26,8 +26,6 @@ export default (ChildComponent) => {
       this.shrinkNavBar = this.shrinkNavBar.bind(this);
       this.growNavBar = this.growNavBar.bind(this);
       this.toggleMenu = this.toggleMenu.bind(this);
-      //this.scrollHelper = this.scrollHelper.bind(this);
-      //this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
     }
 
     componentDidMount() {
@@ -65,31 +63,6 @@ export default (ChildComponent) => {
         menuOpen: !this.state.menuOpen
       });
     }
-
-
-
-  /*
-  scrollHelper(currentPage) {
-    console.log('firing scroll helper');
-    let offset = currentPage.getBoundingClientRect().top;
-    let navBottom = this.state.navBottom;
-
-    console.log('offset: ', offset);
-    console.log('navBottom: ', navBottom);
-
-    if (offset < navBottom) {
-      this.updateBackgroundColor(currentPage);
-    }
-  }
-
-  updateBackgroundColor(currentPage) {
-    console.log('Background color is: ', currentPage.style.backgroundColor);
-    this.setState({
-      navBackgroundColor: currentPage.style.backgroundColor
-    });
-  }
-  */
-
 
     render() {
       const { navSize, menuOpen } = this.state;
