@@ -3,65 +3,47 @@
 
 .page-2__text-container {
   box-sizing: border-box;
-  border: 1px solid blue;
-  width: 50%;
+  width: 100%;
   height: 23rem;
-  //padding-left: 1.7rem;
-  //padding-right: 1.7rem;
-  padding: 0 1.7rem 0 1.7rem;
+
+  @include breakpoint-smallphone-down {
+    padding: 1rem;
+  }
 
   font-family: 'Archivo Medium', sans-serif;
 
   @include breakpoint-tablet-up {
     height: 24.7rem;
-    padding: 0 3.75rem 10.6rem;
+    padding-bottom: 10.6rem;
   }
 
   @include breakpoint-desktop-up {
-    width: 45rem;
+    width: 50%;
     height: 44.5rem;
     padding: 0;
 
     display: flex;
   }
 
-  .page-2__text-sidebar {
-    display: none;
-
-    @include breakpoint-desktop-up {
-      display: flex;
-      max-width: 6.125rem;
-      height: 100%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid black;
-    }
-
-    .page-2__text-sidebar-content {
-      min-width: 18.3rem;
-      height: 1rem;
-      transform: rotate(270deg);
-      font-size: .875rem;
-      letter-spacing: 1px;
-      color: $sidebar_text;
-
-    }
-  }
-
   .page-2__text-body {
     box-sizing: border-box;
-    width: 38.875rem;
+    width: 100%;
+
+    @include breakpoint-tablet-up {
+
+    }
 
     @include breakpoint-desktop-up {
-      padding: 7.5rem 3.4rem 13rem;
+      width: 82%;
+      margin: 7.5rem 3.4rem 13rem;
     }
 
 
     .page-2__text-header {
       width: 100%;
+      min-width: 22rem;
       height: 5rem;
+      padding-left: 1.7rem;
 
       @include breakpoint-tablet-up {
         height: 6rem;
@@ -69,7 +51,8 @@
 
       @include breakpoint-desktop-up {
         height: 6rem;
-        width: 30rem;
+        width: 100%;
+        padding: 0;
       }
 
       .page-2__text-title {
@@ -104,23 +87,28 @@
     .page-2__text {
       box-sizing: border-box;
       width: 20.125rem;
+      width: 86%;
       height: 16.625rem;
       color: $page_2_text;
       font-size: 1rem;
       line-height: 1.625rem;
+      margin: 0 auto;
+
+      @include breakpoint-smallphone-down {
+        width: 18rem;
+      }
 
       @include breakpoint-tablet-up {
         width: 40.5rem;
+        width: 95%;
         height: 14.375rem;
         font-size: 1.25rem;
         line-height: 2rem;
+        margin: 0 auto;
       }
 
       @include breakpoint-desktop-up {
-        height: 18.5rem;
-        width: 30rem;
-        font-size: 1.25rem;
-        line-height: 2rem;
+        height: 25rem;
         padding-right: 2.5rem;
       }
 

@@ -1,8 +1,5 @@
 @import '../../styles/_breakpoints.scss';
 
-// Shadow width should be 79% of drone width
-// Shadhow height should be 9% of drone height
-
 .drone {
   box-sizing: border-box;
   display: flex;
@@ -96,10 +93,6 @@
   } /******** End .drone.landing ********/
 
 
-
-
-
-
   &.page2 {
     box-sizing: border-box;
     height: 19rem;
@@ -112,37 +105,39 @@
     }
 
     @include breakpoint-desktop-up {
-      width: 39rem;
+      //width: 39rem;
+      width: 100%;
       height: 44.5rem;
       padding: 7.125rem 2.3rem 9.625rem 2.9rem;
+
+      display: flex;
+      justify-content: center;
     }
 
     .images-wrapper {
 
-      //border: 1px solid blue;
-      // Shadow width should be 79% of drone width
-      // Shadhow height should be 9% of drone height
-
       @include breakpoint-desktop-up {
-        //border: 1px solid blue;
-        width: 33.5rem;
+        min-width: 33.5rem;
+        width: 86%;
         height: 27.75rem;
       }
 
       .drone-img {
         bottom: 5.9%;
-        //border: 1px solid black;
         width: 20.125rem;
         height: 15.375rem;
 
         @include breakpoint-tablet-up {
           bottom: 6.59%;
-          width: 27.5rem; //440
-          height: 21.25rem; //340
+          width: 27.5rem;
+          height: 21.25rem;
         }
 
         @include breakpoint-desktop-up {
           position: static;
+        }
+
+        @include breakpoint-largedesktop-up {
           min-width: 26.8rem;
           width: 33.5rem;
           height: 25.75rem;
@@ -151,7 +146,6 @@
       }
 
       .shadow-img {
-        //border: 1px solid orange;
         bottom: 2%;
         width: 15.9rem;
         height: 1.3rem;
@@ -163,6 +157,10 @@
         }
 
         @include breakpoint-desktop-up {
+          bottom: 20%;
+        }
+
+        @include breakpoint-largedesktop-up {
           bottom: 3%;
           width: 26.5rem;
           height: 2.3rem;

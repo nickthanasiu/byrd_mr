@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav';
 import Drone from '../../components/Drone';
-import ImageSelectors from '../../components/ImageSelectors';
 import Page2Text from '../../components/Page2Text';
 
 import './style.scss';
@@ -38,7 +37,6 @@ class Page2 extends Component {
       >
         <div className="page-2__images-container">
           <Drone page={'page2'}  />
-          <ImageSelectors />
         </div>
         <Page2Text />
       </div>

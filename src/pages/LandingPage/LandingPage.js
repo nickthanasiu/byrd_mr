@@ -27,7 +27,6 @@ class LandingPage extends Component {
   landingIsInView() {
     if(this.state.inView) {
       if(this.props.scrollY >= this.page.offsetHeight) {
-        console.log('Landing page is OUT of view!!');
         this.setState({
           inView: false
         }, () => {
@@ -38,7 +37,6 @@ class LandingPage extends Component {
 
     if(!this.state.inView) {
       if (this.props.scrollY < this.page.offsetHeight) {
-        console.log('Landing page is IN view!!!');
         this.setState({
           inView: true
         }, () => {
@@ -47,10 +45,6 @@ class LandingPage extends Component {
       }
     }
   }
-
-
-
-
 
 
   render() {

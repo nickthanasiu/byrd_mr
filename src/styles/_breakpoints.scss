@@ -18,6 +18,7 @@ $breakpoints: (
    'widephone' : 440px,
    'tablet' : 757px,
    'desktop' : 1026px,
+   'largedesktop' : 1280px,
 );
 
 @mixin breakpoint-smallphone-down {
@@ -71,6 +72,14 @@ $breakpoints: (
 
 @mixin breakpoint-desktop-up {
   $min-value: map-get($breakpoints, desktop);
+
+  @media (min-width: $min-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-largedesktop-up {
+  $min-value: map-get($breakpoints, largedesktop);
 
   @media (min-width: $min-value) {
     @content;
