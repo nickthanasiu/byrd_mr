@@ -11,16 +11,29 @@
 
   padding: 1.3rem 1.625rem 3.2rem;
 
-  @include breakpoint-tablet-up {}
+  @include breakpoint-tablet-up {
+    height: 33.3rem;
+
+    padding-top: 2.7rem;
+  }
 
   @include breakpoint-desktop-up {}
 
   .remote__img {
     //border: 1px solid black;
+    min-width: 20rem;
     width: 20rem;
     height: 18rem;
+
+    @include breakpoint-tablet-up {
+      min-width: 29.6rem;
+      width: 29.6rem;
+      height: 26.1rem;
+    }
+
+    @include breakpoint-desktop-up {
+
+    }
   }
-
-
 
 }

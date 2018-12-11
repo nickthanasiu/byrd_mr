@@ -1,8 +1,15 @@
 @import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
 
 .page-4__text-container {
+  box-sizing: border-box;
+  min-width: 23.4rem;
   width: 100%;
   height: 18rem;
+
+  @include breakpoint-tablet-up {
+    height: 24.7rem;
+  }
 
   .page-4__text-body {
     font-family: 'Archivo Medium', sans-serif;
@@ -15,24 +22,47 @@
     align-items: center;
     //border: 1px solid blue;
 
+    @include breakpoint-tablet-up {
+      //background-color: yellow;
+      padding: 0 3.75rem 9.4rem;
+    }
+
     .page-4__text-header {
 
-      //border: 1px solid blue;
+      //border: 1px solid black;
+      min-width: 17.5rem;
       width: 100%;
       height: 4.4rem;
+
+
+      @include breakpoint-tablet-up {
+        height: 6rem;
+      }
 
       .page-4__text-title {
         width: 100%;
         height: 2.25rem;
-
         font-size: 2rem;
+
+        @include breakpoint-tablet-up {
+          height: 3rem;
+          font-size: 2.75rem;
+        }
       }
 
       .page-4__title-underline {
         width: 5.125rem;
         height: .25rem;
         background-color: $menu;
-        margin-top: 1rem;
+        margin-top: .625rem;
+        margin-bottom: 1.3rem;
+
+        @include breakpoint-tablet-up {
+          width: 5.125rem;
+          height: .25rem;
+          margin-top: .875rem;
+          margin-bottom: 4.8rem;
+        }
       }
 
     }
@@ -44,6 +74,12 @@
       font-size: 1rem;
       line-height: 1.625rem;
       color: $page_2_text;
+
+      @include breakpoint-tablet-up {
+        height: 9.25rem;
+        font-size: 1.25rem;
+        line-height: 2rem;
+      }
     }
 
   }
