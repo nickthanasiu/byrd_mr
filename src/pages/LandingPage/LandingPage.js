@@ -12,7 +12,6 @@ class LandingPage extends Component {
     this.state = {
       inView: true
     };
-
     this.landingIsInView = this.landingIsInView.bind(this);
   }
 
@@ -45,7 +44,6 @@ class LandingPage extends Component {
       }
     }
   }
-
 
   render() {
     return (
