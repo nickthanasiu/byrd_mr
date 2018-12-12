@@ -23,10 +23,13 @@ export default class FormPage extends Component {
   }
 
   formIsInView() {
-    const { scrollY, navBottom } = this.props;
+    const { scrollY, navBottom, hideSidebar, showSidebar } = this.props;
 
     if (!this.state.inView) {
       if ((scrollY + navBottom) >= this.page.offsetTop) {
+
+        hideSidebar();
+
         this.setState({
           inView: true
         }, () => {
@@ -37,6 +40,9 @@ export default class FormPage extends Component {
 
     if (this.state.inView) {
       if ((scrollY + navBottom) < this.page.offsetTop) {
+
+        showSidebar();
+
         this.setState({
           inView: false
         }, () => {
@@ -45,6 +51,7 @@ export default class FormPage extends Component {
       }
     }
   }
+
 
   render() {
     return (

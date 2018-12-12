@@ -1,7 +1,6 @@
 .sidebar-text__container {
   display: none;
 
-  @include breakpoint-desktop-up {
     display: flex;
     max-width: 6.125rem;
     height: 100%;
@@ -10,7 +9,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-  }
+}
 
   .sidebar-text__content {
     min-width: 18.3rem;

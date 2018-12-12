@@ -1,0 +1,40 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
+
+.sidebar-left {
+  @include breakpoint-tablet-down {
+    display: none;
+  }
+
+  position: fixed;
+  z-index: 1000;
+  height: 100%;
+  width: 7.7%;
+  top: 0;
+  left: 0;
+
+  &.hidden {
+    display: none;
+  }
+
+  .sidebar-left__text-container {
+      display: flex;
+      max-width: 6.125rem;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .sidebar-left__text-content {
+        font-family: 'Archivo Medium', sans-serif;
+        min-width: 18.3rem;
+        //width: 692px;
+        height: 1rem;
+        transform: rotate(270deg);
+        font-size: .875rem;
+        letter-spacing: 1px;
+        color: $sidebar_text;
+      }
+  }
+}
