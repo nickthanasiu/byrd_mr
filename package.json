@@ -8,6 +8,7 @@
     "build": "webpack"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "lodash.camelcase": "^4.3.0",
     "lodash.throttle": "^4.1.1",

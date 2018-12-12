@@ -1,0 +1,89 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
+
+.form-button-container {
+  width: 100%;
+  height: 3.625rem;
+
+  .form-submit-button {
+    background-color: $menu;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Archivo Medium', sans-serif;
+    font-size: 1.25rem;
+    padding: 0 1.625rem;
+
+    border: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    display: flex;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint-tablet-up {
+      width: 14.5rem;
+    }
+
+    @include breakpoint-desktop-up {
+      width: 14rem;
+    }
+
+    .button-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .arrow {
+        width: 1rem;
+        height: .75rem;
+      }
+    }
+
+    .success-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &.submitting {
+      width: 2.5rem;
+      border: 3px solid $form_placeholder;
+      border-radius: 40px;
+      margin: 0 auto;
+      font-size: 0;
+      border-left-color: $menu;
+      background-color: none;
+      animation: rotating 2s 0.25s linear infinite;
+      background-color: transparent;
+    }
+
+    &.success {
+      background-color: $green;
+      border: none;
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

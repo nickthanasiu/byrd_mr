@@ -38,12 +38,14 @@ export default (ChildComponent) => {
         page2: '#fff',
         page3: '#040404',
         page4: '#fff',
+        form: '#F4F1ED',
       };
 
       this.logos = {
         page2: Logo,
         page3: LogoBlackBackground,
         page4: Logo,
+        form: Logo
       };
     }
 
