@@ -1,0 +1,59 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_breakpoints.scss';
+
+.sidebar-right {
+  @include breakpoint-tablet-down {
+    display: none;
+  }
+
+  position: fixed;
+  z-index: 100;
+  height: 100%;
+  width: 6.5%;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+
+  &.hidden {
+    display: none;
+  }
+
+  .page-indicators-container {
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 6rem;
+    height: 44.5rem;
+
+    .page-indicators {
+
+      box-sizing: border-box;
+      width: 5.875rem;
+      height: .125rem;
+      transform: rotate(90deg);
+
+      display: flex;
+      justify-content: space-between;
+
+      .indicator {
+        background-color: $image_selectors;
+        border-radius: 5.5px;
+        height: .125rem;
+
+        width: 1.875rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.active {
+          background-color: $menu;
+        }
+      }
+    }
+  }
+}

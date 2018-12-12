@@ -4,6 +4,7 @@ import throttle from 'lodash.throttle';
 import LandingNav from '../LandingNav';
 import Menu from '../Menu';
 import SidebarLeft from '../SidebarLeft';
+import SidebarRight from '../SidebarRight';
 import Logo from '../../assets/logo/Logo.png';
 import LogoBlackBackground from '../../assets/logo/logo_black_background.png';
 import MenuButton from '../../assets/icons/Menu.png';
@@ -147,13 +148,19 @@ export default (ChildComponent) => {
 
                           <ul className="dd-nav__social-icons">
                             <li>
-                              <Icon icon={facebookSquare} size={26} />
+                              <a href="https://www.facebook.com/whitelabelcollaborative" target="_blank" rel="noopener noreferrer">
+                                <Icon icon={facebookSquare} size={26} />
+                              </a>
                             </li>
                             <li>
-                              <Icon icon={instagram} size={26} />
+                              <a href="https://www.instagram.com/wlabelco/" target="_blank" rel="noopener noreferrer">
+                                <Icon icon={instagram} size={26} />
+                              </a>
                             </li>
                             <li>
-                              <Icon icon={twitter} size={26} />
+                              <a href="https://twitter.com/wlabelco" target="_blank" rel="noopener noresferrer">
+                                <Icon icon={twitter} size={26} />
+                              </a>
                             </li>
                           </ul>
                         </div>
@@ -187,6 +194,8 @@ export default (ChildComponent) => {
                             <img className="dd-menu_btn--desktop" src={WhiteMenuButton} />
                           </div>
                         </div>
+
+                        <SidebarRight isVisible={this.state.sidebarVisible} />
                       </div>
 
                       <Menu menuState={menuState} toggleMenu={this.toggleMenu} />

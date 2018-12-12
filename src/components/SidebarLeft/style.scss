@@ -7,7 +7,7 @@
   }
 
   position: fixed;
-  z-index: 1000;
+  
   height: 100%;
   width: 7.7%;
   top: 0;
@@ -29,7 +29,6 @@
       .sidebar-left__text-content {
         font-family: 'Archivo Medium', sans-serif;
         min-width: 18.3rem;
-        //width: 692px;
         height: 1rem;
         transform: rotate(270deg);
         font-size: .875rem;
