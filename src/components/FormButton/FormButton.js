@@ -72,10 +72,11 @@ export default class FormButton extends Component {
     const success = this.state.success ? 'success' : null;
 
     return (
-      <div className="form-button-container">
+      <div className="form-button-container" onMouseDown={this.props.showErrors}>
         <button
           className={`form-submit-button ${submitting} ${success}`}
           type="submit"
+          disabled={!this.props.formValid}
           onClick={this.submit}
         >
           {

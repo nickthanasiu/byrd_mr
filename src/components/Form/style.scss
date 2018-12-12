@@ -11,4 +11,14 @@
     width: 100%;
     height: 30.75rem;
   }
+
+  .error-panel-visible {
+    margin-top: 2rem;
+    width: 100%;
+    height: 3rem;
+  }
+
+  .error-panel-hidden {
+    display: none;
+  }
 }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Input from '../Input';
 import TextArea from '../TextArea';
 import FormButton from '../FormButton';
+import FormErrors from '../FormErrors';
 
 import './style.scss';
 
@@ -14,7 +15,13 @@ export default class Form extends Component {
     this.state = {
       name: '',
       email: '',
-      message: ''
+      message: '',
+      formErrors: {name: '', email: '', message: ''},
+      nameValid: false,
+      emailValid: false,
+      messageValid: false,
+      formValid: false,
+      errorsVisible: false,
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -22,6 +29,9 @@ export default class Form extends Component {
     this.handleName = this.handleName.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
+    this.validateField = this.validateField.bind(this);
+    this.validateForm = this.validateForm.bind(this);
+    this.showErrorsOnFailedSubmit = this.showErrorsOnFailedSubmit.bind(this);
   }
 
   handleFormSubmit(e) {
@@ -39,7 +49,6 @@ export default class Form extends Component {
       }).catch((err) => {
         console.log(err);
       });
-
       this.resetForm(e);
   }
 
@@ -53,24 +62,83 @@ export default class Form extends Component {
   }
 
   handleName(e) {
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      name: e.target.value
+      name: value
+    }, () => {
+      this.validateField(name, value);
     });
   }
 
   handleEmail(e) {
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      email: e.target.value
+      email: value
+    }, () => {
+      this.validateField(name, value);
     });
   }
 
   handleMessage(e) {
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      message: e.target.value
+      message: value
+    }, () => {
+      this.validateField(name, value);
+    });
+  }
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let nameValid = this.state.nameValid;
+    let emailValid = this.state.emailValid;
+    let messageValid = this.state.messageValid;
+
+    switch (fieldName) {
+      case 'name':
+        nameValid = value.length > 0;
+        fieldValidationErrors.name = nameValid ? '' : ' is empty';
+        break;
+      case 'email':
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) !== null;
+        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+        break;
+      case 'message':
+        messageValid = value.length > 0;
+        fieldValidationErrors.message = messageValid ? '' : ' is empty. What are your plans?';
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      formErrors: fieldValidationErrors,
+      nameValid,
+      emailValid,
+      messageValid
+    }, () => {
+      this.validateForm();
+    });
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.nameValid && this.state.emailValid && this.state.messageValid
+    });
+  }
+
+  showErrorsOnFailedSubmit() {
+    this.setState({
+      errorsVisible: true
     });
   }
 
   render() {
+    const errorPanelVisible = this.state.errorsVisible ? 'error-panel-visible' : null;
+
     return (
       <div className="form__wrapper">
         <form
@@ -79,7 +147,7 @@ export default class Form extends Component {
           onSubmit={this.handleFormSubmit}
         >
           <Input
-            name="full_name"
+            name="name"
             title="FULL NAME"
             type="text"
             value={this.state.name}
@@ -104,8 +172,15 @@ export default class Form extends Component {
             handleChange={this.handleMessage}
           />
 
-        <FormButton title="Send Message" />
+          <FormButton
+            title="Send Message"
+            formValid={this.state.formValid}
+            showErrors={this.showErrorsOnFailedSubmit}
+          />
 
+        <div className='error-panel-visible'>
+            <FormErrors formErrors={this.state.formErrors} />
+          </div>
         </form>
       </div>
     );
