@@ -1,0 +1,50 @@
+@import '../../styles/_colors.scss';
+
+.text-area__container {
+  //border: 1px solid red;
+  width: 100%;
+  height: 10.5rem;
+
+  margin-bottom: 1.5rem;
+
+  letter-spacing: .0625rem;
+
+  display: flex;
+  flex-direction: column;
+
+  .text-area__label {
+    height: 1rem;
+    font-size: .875rem;
+    letter-spacing: inherit;
+  }
+
+  .text-area__input {
+    height: 100%;
+    margin-top: 1.4rem;
+    border: none;
+    border-bottom: 1px solid $form_placeholder;
+
+    font-family: 'Archivo Regular', sans-serif;
+    letter-spacing: inherit;
+
+    background-color: transparent;
+    font-size: 1.25rem;
+
+    &::placeholder {
+      color: $form_placeholder;
+      font-family: 'Archivo Medium', sans-serif;
+      letter-spacing: inherit;
+    }
+
+    &:focus {
+      outline: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+
+      border-bottom: 1px solid #000;
+      //transform: scale(1.0125);
+      //padding: 1.4rem .75rem 0;
+    }
+  }
+
+}
