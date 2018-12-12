@@ -2,9 +2,11 @@ import React from 'react';
 
 import './style.scss';
 
-const FormErrors = ({ formErrors }) => {
+const FormErrors = ({ formErrors, errorsVisible }) => {
+  const displayErrors = errorsVisible ? 'show-errors' : 'hide-errors';
+
   return (
-    <div className="form-errors">
+    <div className={`form-errors ${displayErrors}`}>
       {
         Object.keys(formErrors).map((fieldName, i) => {
           if (formErrors[fieldName].length > 0) {

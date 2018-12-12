@@ -16,7 +16,11 @@ export default class Form extends Component {
       name: '',
       email: '',
       message: '',
-      formErrors: {name: '', email: '', message: ''},
+      formErrors: {
+        name: ' is empty. Please enter your full name.',
+        email: ' is invalid. Please enter a valid email address.',
+        message: ' is empty. What are your plans?'
+      },
       nameValid: false,
       emailValid: false,
       messageValid: false,
@@ -49,6 +53,7 @@ export default class Form extends Component {
       }).catch((err) => {
         console.log(err);
       });
+
       this.resetForm(e);
   }
 
@@ -65,7 +70,8 @@ export default class Form extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      name: value
+      name: value,
+      errorsVisible: false,
     }, () => {
       this.validateField(name, value);
     });
@@ -75,7 +81,8 @@ export default class Form extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      email: value
+      email: value,
+      errorsVisible: false,
     }, () => {
       this.validateField(name, value);
     });
@@ -85,7 +92,8 @@ export default class Form extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({
-      message: value
+      message: value,
+      errorsVisible: false,
     }, () => {
       this.validateField(name, value);
     });
@@ -98,15 +106,15 @@ export default class Form extends Component {
     let messageValid = this.state.messageValid;
 
     switch (fieldName) {
-      case 'name':
+      case 'Name':
         nameValid = value.length > 0;
-        fieldValidationErrors.name = nameValid ? '' : ' is empty';
+        fieldValidationErrors.name = nameValid ? '' : ' is empty. Please enter your full name.';
         break;
-      case 'email':
+      case 'Email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) !== null;
-        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+        fieldValidationErrors.email = emailValid ? '' : ' is invalid. Please enter a valid email address.';
         break;
-      case 'message':
+      case 'Message':
         messageValid = value.length > 0;
         fieldValidationErrors.message = messageValid ? '' : ' is empty. What are your plans?';
         break;
@@ -131,14 +139,13 @@ export default class Form extends Component {
   }
 
   showErrorsOnFailedSubmit() {
+    console.log('Errors!');
     this.setState({
       errorsVisible: true
     });
   }
 
   render() {
-    const errorPanelVisible = this.state.errorsVisible ? 'error-panel-visible' : null;
-
     return (
       <div className="form__wrapper">
         <form
@@ -147,7 +154,7 @@ export default class Form extends Component {
           onSubmit={this.handleFormSubmit}
         >
           <Input
-            name="name"
+            name="Name"
             title="FULL NAME"
             type="text"
             value={this.state.name}
@@ -156,7 +163,7 @@ export default class Form extends Component {
           />
 
           <Input
-            name="email"
+            name="Email"
             title="EMAIL"
             type="text"
             value={this.state.email}
@@ -165,7 +172,7 @@ export default class Form extends Component {
           />
 
           <TextArea
-            name="message"
+            name="Message"
             title="MESSAGE"
             value={this.state.message}
             placeHolder="What are your plans?"
@@ -178,8 +185,11 @@ export default class Form extends Component {
             showErrors={this.showErrorsOnFailedSubmit}
           />
 
-        <div className='error-panel-visible'>
-            <FormErrors formErrors={this.state.formErrors} />
+        <div className="errors-panel">
+            <FormErrors
+              formErrors={this.state.formErrors}
+              errorsVisible={this.state.errorsVisible}
+            />
           </div>
         </form>
       </div>
