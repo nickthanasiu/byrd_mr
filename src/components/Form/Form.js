@@ -75,6 +75,7 @@ export default class Form extends Component {
       <div className="form__wrapper">
         <form
           className="form__form"
+          autoComplete="off"
           onSubmit={this.handleFormSubmit}
         >
           <Input

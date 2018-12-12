@@ -29,6 +29,10 @@
     background-color: transparent;
     font-size: 1.25rem;
 
+    @include breakpoint-desktop-up {
+      height: 4.25rem;
+    }
+
     &::placeholder {
       color: $form_placeholder;
       font-family: 'Archivo Medium', sans-serif;

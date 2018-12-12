@@ -37,7 +37,9 @@
       width: 14.5rem;
     }
 
-
+    @include breakpoint-desktop-up {
+      width: 14rem;
+    }
 
     .button-content {
       width: 100%;

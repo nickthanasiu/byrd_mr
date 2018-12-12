@@ -4,9 +4,14 @@
 .form {
   background-color: $offwhite;
   padding: 3.5rem 1.6rem 15rem;
-  //border: 1px solid red;
 
   @include breakpoint-tablet-up {
     padding: 10.875rem 3.7rem 20em;
+  }
+
+  @include breakpoint-desktop-up {
+    padding: 11.4rem 24.375rem 39.8rem;
+    display: flex;
+    justify-content: center;
   }
 }
