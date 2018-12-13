@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "lodash.camelcase": "^4.3.0",
+    "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.1",

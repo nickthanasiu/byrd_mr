@@ -22,6 +22,7 @@ export default (ChildComponent) => {
       this.state = {
         navBackgroundColor: '#fff',
         navLogo: Logo,
+        pageIndicatorId: 0,
         scrollY: 0,
         navBottom: null,
         dropdownVisible: false,
@@ -51,6 +52,12 @@ export default (ChildComponent) => {
         page3: LogoBlackBackground,
         page4: Logo,
         form: Logo
+      };
+
+      this.pageIndicatorIds = {
+        page2: 0,
+        page3: 1,
+        page4: 2
       };
     }
 
@@ -103,6 +110,7 @@ export default (ChildComponent) => {
       this.setState({
         navBackgroundColor: this.backgroundColors[page],
         navLogo: this.logos[page],
+        pageIndicatorId: this.pageIndicatorIds[page],
       });
     }
 
@@ -195,7 +203,10 @@ export default (ChildComponent) => {
                           </div>
                         </div>
 
-                        <SidebarRight isVisible={this.state.sidebarVisible} />
+                        <SidebarRight
+                          isVisible={this.state.sidebarVisible}
+                          activePageId={this.state.pageIndicatorId}
+                        />
                       </div>
 
                       <Menu menuState={menuState} toggleMenu={this.toggleMenu} />
