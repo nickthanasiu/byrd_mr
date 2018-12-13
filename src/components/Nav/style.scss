@@ -101,6 +101,10 @@
         width: 8.5rem;
         height: 1.264rem;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         @include breakpoint-tablet-up {
           width: 11rem;
           height: 1.625rem;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+import { toTop } from '../../utils/scroll';
 
 import LandingNav from '../LandingNav';
 import Menu from '../Menu';
@@ -126,6 +127,10 @@ export default (ChildComponent) => {
       });
     }
 
+    scrollToTop() {
+      toTop();
+    }
+
     render() {
       const { landingIsInView, menuOpen, navBackgroundColor, navLogo } = this.state;
       const menuState = menuOpen ? 'open' : 'closed';
@@ -177,7 +182,11 @@ export default (ChildComponent) => {
                       </div>
                       <div className="dd-nav__center">
                         <div className="dd-logo_container">
-                          <img className="dd-logo" src={navLogo} />
+                          <img
+                            className="dd-logo"
+                            src={navLogo}
+                            onClick={this.scrollToTop}
+                          />
                         </div>
                       </div>
                       <div className="dd-nav__right">
