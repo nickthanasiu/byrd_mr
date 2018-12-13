@@ -13,14 +13,18 @@
   font-family: 'Archivo Medium', sans-serif;
 
   @include breakpoint-tablet-up {
+    width: 84%;
+    min-width: 647px;
     height: 24.7rem;
     padding-bottom: 10.6rem;
+    margin: 0 auto;
   }
 
   @include breakpoint-desktop-up {
     width: 50%;
     height: 44.5rem;
     padding: 0;
+    min-width: 0;
 
     display: flex;
   }
