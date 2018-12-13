@@ -1,0 +1,31 @@
+@import '../../styles/_breakpoints.scss';
+@import '../../styles/_colors.scss';
+
+.propeller-container {
+  box-sizing: border-box;
+  width: 80%;
+  height: 18.75rem;
+  background-color: $propeller_background;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  @include breakpoint-tablet-up {
+    width: 40.5rem;
+    height: 27.5rem;
+  }
+
+  .propeller-img {
+    min-width: 256px;
+    width: 16rem;
+    height: 100%;
+
+    @include breakpoint-tablet-up {
+      min-width: 351px;
+      width: 22rem;
+      height: 26.75rem;
+    }
+  }
+}

@@ -105,8 +105,9 @@
     }
 
     @include breakpoint-desktop-up {
-      //width: 39rem;
+
       width: 100%;
+      width: 39rem;
       height: 44.5rem;
       padding: 7.125rem 2.3rem 9.625rem 2.9rem;
 
@@ -117,9 +118,14 @@
     .images-wrapper {
 
       @include breakpoint-desktop-up {
+        margin-left: -9.5rem;
+      }
+
+      @include breakpoint-largedesktop-up {
         min-width: 33.5rem;
         width: 86%;
         height: 27.75rem;
+        margin-left: 0;
       }
 
       .drone-img {
