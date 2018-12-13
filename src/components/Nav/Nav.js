@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+import { toTop } from '../../utils/scroll';
 
 import LandingNav from '../LandingNav';
 import Menu from '../Menu';
+import SidebarLeft from '../SidebarLeft';
+import SidebarRight from '../SidebarRight';
 import Logo from '../../assets/logo/Logo.png';
 import LogoBlackBackground from '../../assets/logo/logo_black_background.png';
 import MenuButton from '../../assets/icons/Menu.png';
@@ -20,11 +23,13 @@ export default (ChildComponent) => {
       this.state = {
         navBackgroundColor: '#fff',
         navLogo: Logo,
+        pageIndicatorId: 0,
         scrollY: 0,
         navBottom: null,
         dropdownVisible: false,
         landingIsInView: true,
         menuOpen: false,
+        sidebarVisible: true,
       };
 
       this.handleScroll = this.handleScroll.bind(this);
@@ -33,6 +38,8 @@ export default (ChildComponent) => {
       this.hideDropdown = this.hideDropdown.bind(this);
       this.toggleMenu = this.toggleMenu.bind(this);
       this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
+      this.hideSidebar = this.hideSidebar.bind(this);
+      this.showSidebar = this.showSidebar.bind(this);
 
       this.backgroundColors = {
         page2: '#fff',
@@ -46,6 +53,12 @@ export default (ChildComponent) => {
         page3: LogoBlackBackground,
         page4: Logo,
         form: Logo
+      };
+
+      this.pageIndicatorIds = {
+        page2: 0,
+        page3: 1,
+        page4: 2
       };
     }
 
@@ -98,7 +111,24 @@ export default (ChildComponent) => {
       this.setState({
         navBackgroundColor: this.backgroundColors[page],
         navLogo: this.logos[page],
+        pageIndicatorId: this.pageIndicatorIds[page],
       });
+    }
+
+    hideSidebar() {
+      this.setState({
+        sidebarVisible: false
+      });
+    }
+
+    showSidebar() {
+      this.setState({
+        sidebarVisible: true
+      });
+    }
+
+    scrollToTop() {
+      toTop();
     }
 
     render() {
@@ -110,66 +140,87 @@ export default (ChildComponent) => {
             landingIsInView ?
               <LandingNav /> :
                 (
-                  <nav
-                    className="dd-nav"
-                    ref={(elem) => this.nav = elem}
-                    style={{ backgroundColor: `${navBackgroundColor}`}}
-                  >
-                    <div className="dd-nav__left">
-                      <div className="dd-nav__left--desktop">
-                        <ul className="dd-nav__list">
-                          <li className="dd-nav__list-item left-item">
-                            STORE
-                          </li>
-                          <li className="dd-nav__list-item">
-                            TUTORIALS
-                          </li>
-                        </ul>
+                  <div className="nav-sidebar-container">
 
-                        <ul className="dd-nav__social-icons">
-                          <li>
-                            <Icon icon={facebookSquare} size={26} />
-                          </li>
-                          <li>
-                            <Icon icon={instagram} size={26} />
-                          </li>
-                          <li>
-                            <Icon icon={twitter} size={26} />
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="dd-nav__center">
-                      <div className="dd-logo_container">
-                        <img className="dd-logo" src={navLogo} />
-                      </div>
-                    </div>
-                    <div className="dd-nav__right">
-                      <div className="dd-btn_container">
-                        <img className="dd-menu_btn" src={WhiteMenuButton} />
-                      </div>
+                    <nav
+                      className="dd-nav"
+                      ref={(elem) => this.nav = elem}
+                      style={{ backgroundColor: `${navBackgroundColor}`}}
+                    >
 
-                      <div className="dd-nav__right--desktop">
-                        <ul className="dd-nav__list">
-                          <li className="dd-nav__list-item left-item">
-                            BLOG
-                          </li>
-                          <li className="dd-nav__list-item">
-                            CONTACT
-                          </li>
-                        </ul>
+                      <div className="dd-nav__left">
+                        <div className="dd-nav__left--desktop">
+                          <ul className="dd-nav__list">
+                            <li className="dd-nav__list-item left-item">
+                              STORE
+                            </li>
+                            <li className="dd-nav__list-item">
+                              TUTORIALS
+                            </li>
+                          </ul>
 
-                        <div
-                          className="dd-btn_container--desktop"
-                          onClick={this.toggleMenu}
-                        >
-                          <img className="dd-menu_btn--desktop" src={WhiteMenuButton} />
+                          <ul className="dd-nav__social-icons">
+                            <li>
+                              <a href="https://www.facebook.com/whitelabelcollaborative" target="_blank" rel="noopener noreferrer">
+                                <Icon icon={facebookSquare} size={26} />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://www.instagram.com/wlabelco/" target="_blank" rel="noopener noreferrer">
+                                <Icon icon={instagram} size={26} />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://twitter.com/wlabelco" target="_blank" rel="noopener noresferrer">
+                                <Icon icon={twitter} size={26} />
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <SidebarLeft isVisible={this.state.sidebarVisible} />
+                      </div>
+                      <div className="dd-nav__center">
+                        <div className="dd-logo_container">
+                          <img
+                            className="dd-logo"
+                            src={navLogo}
+                            onClick={this.scrollToTop}
+                          />
                         </div>
                       </div>
-                    </div>
+                      <div className="dd-nav__right">
+                        <div className="dd-btn_container">
+                          <img className="dd-menu_btn" src={WhiteMenuButton} />
+                        </div>
 
-                    <Menu menuState={menuState} toggleMenu={this.toggleMenu} />
-                  </nav>
+                        <div className="dd-nav__right--desktop">
+                          <ul className="dd-nav__list">
+                            <li className="dd-nav__list-item left-item">
+                              BLOG
+                            </li>
+                            <li className="dd-nav__list-item">
+                              CONTACT
+                            </li>
+                          </ul>
+
+                          <div
+                            className="dd-btn_container--desktop"
+                            onClick={this.toggleMenu}
+                          >
+                            <img className="dd-menu_btn--desktop" src={WhiteMenuButton} />
+                          </div>
+                        </div>
+
+                        <SidebarRight
+                          isVisible={this.state.sidebarVisible}
+                          activePageId={this.state.pageIndicatorId}
+                        />
+                      </div>
+
+                      <Menu menuState={menuState} toggleMenu={this.toggleMenu} />
+                    </nav>
+                  </div>
                 )
           }
 
@@ -182,6 +233,8 @@ export default (ChildComponent) => {
               updateBackgroundColor={this.updateBackgroundColor}
               scrollY={this.state.scrollY}
               navBottom={this.state.navBottom}
+              hideSidebar={this.hideSidebar}
+              showSidebar={this.showSidebar}
             />
           </div>
         </div>

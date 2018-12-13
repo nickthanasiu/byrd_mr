@@ -139,7 +139,6 @@ export default class Form extends Component {
   }
 
   showErrorsOnFailedSubmit() {
-    console.log('Errors!');
     this.setState({
       errorsVisible: true
     });
